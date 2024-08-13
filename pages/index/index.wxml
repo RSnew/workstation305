@@ -1,0 +1,45 @@
+<!--登录-->
+<view class="bg-img bg-mask flex align-center animation-fade" style="background-image: url('icon/login.png');height: 122px;"
+  bindtap="gotoLogin">
+    <view class="padding-xl text-white">
+        <view class="padding-xs text-xxl text-bold">
+            登录
+        </view>
+        <view class="padding-xs text-lg">
+            开启工坊之旅
+        </view>
+    </view>
+</view>
+<!--查看工坊人员-->
+<view class="bg-img bg-mask flex align-center" style="background-image: url('icon/viewUser.png');height: 122px;">
+    <view class="padding-xl text-white">
+        <view class="padding-xs text-xxl text-bold">
+            查看工坊人员
+        </view>
+        <view class="padding-xs text-lg">
+            看看谁在认真学习
+        </view>
+    </view>
+</view>
+<!--入驻工坊申请-->
+<view class="bg-img bg-mask flex align-center" style="background-image: url('icon/apply.png');height: 122px;">
+    <view class="padding-xl text-white">
+        <view class="padding-xs text-xxl text-bold">
+            工坊申请
+        </view>
+        <view class="padding-xs text-lg">
+            想要加入我们？
+        </view>
+    </view>
+</view>
+<!--建议-->
+<view class="bg-img bg-mask flex align-center" style="background-image: url('icon/suggestion.png');height: 122px;">
+    <view class="padding-xl text-white">
+        <view class="padding-xs text-xxl text-bold">
+            提意见
+        </view>
+        <view class="padding-xs text-lg">
+            有什么建议都可以指出来喔
+        </view>
+    </view>
+</view>
