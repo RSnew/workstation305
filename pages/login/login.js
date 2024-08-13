@@ -64,7 +64,7 @@ Page({
 
   },
   
-  returnIndex:function(e){
+  gotoIndex:function(e){
     wx.navigateTo({
       url:"/pages/index/index"
     })

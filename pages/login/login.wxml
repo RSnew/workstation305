@@ -1,7 +1,7 @@
 <!--pages/login.wxml-->
 <view class="bg-img" style="background-image: url('icon/loginBackground.png');height: 800px;">
   <view class="content">
-    <button bindtap="returnIndex">返回</button>
+    <button bindtap="gotoIndex">返回</button>
   </view>
 </view>
 
