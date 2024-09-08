@@ -1,38 +1,30 @@
 import pymysql
-class Frame():
-    def __init__(self):
-        self.conn=pymysql.connect(
-            host='localhost',
-            user="root",
-            passwd="qweasd123456",
-            database="workstation305",
-            charset="utf8mb4",
-            autocommit=True
-        )
-        self.cursor=self.conn.cursor() #游标，利用游标查询数据
-    # cursor.execute("select * from people")
-    # result : tuple=cursor.fetchall() #结果使用fetchall拿出来，类型为元组
-    # print(result)
 
-    def findAll(self):
-        self.cursor.execute("select * from people")
-        result : tuple=self.cursor.fetchall()
-        return result
-    # def findPeopleBySN(self,SN):
-    #     self.cursor.execute("select * from people where SN1='{}' or SN2='{}'".format(SN,SN))
-    #     result : tuple=self.cursor.fetchall()
-    #     return result
-    def findPeopleByNumber(self,Number):
-        self.cursor.execute("select * from people where number={}".format(Number))
-        result : tuple=self.cursor.fetchall()
-        return result
-    def findPeopleByName(self,name):
-        self.cursor.execute("select * from people where name='{}'".format(name))
-        result : tuple=self.cursor.fetchall()
-        return result
-    def addOftenTime(self,number):
-        try:
-            self.cursor.execute("update people set allTime=allTime+1 where number={}".format(number))
-        except Exception :
-            return 'something wrong'
-        else: 'ok'
+## 
+# 将表结构迁移到 user_tables 多对多关系表
+connection = pymysql.connect(
+    host='localhost',
+    user='root',
+    password='qweasd123456',
+    db='workstation305',
+    charset='utf8mb4'
+)
+cursor=connection.cursor()
+# cursor.execute('SELECT * FROM people')
+# user=cursor.fetchone()
+# print(user[0])
+cursor.execute('SELECT * FROM people;')
+user=cursor.fetchall()
+connection.begin()
+# print(user)
+for userTemp in user:
+    userSN1 = userTemp[0]
+    userSN2 = userTemp[1]
+    userNumber = userTemp[2]
+    if userSN1 is not None:
+        cursor.execute('insert into user_tables (SN, number) values (%s, %s);',(userSN1, userNumber))
+    if userSN2 is not None:
+        cursor.execute('insert into user_tables (SN, number) values (%s, %s);',(userSN2, userNumber))
+connection.commit()
+cursor.close()
+connection.close()
