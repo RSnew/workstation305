@@ -1,17 +1,17 @@
 <!--pages/login.wxml-->
-<view class="bg-img" style="background-image: url('icon/loginBackground.png');height: 800px;">
+<view class="bg-img" style="background-image: url('{{alioss}}/loginPicture/icon/loginBackground.png');height: 800px;">
   <view class="content" style="width: 647rpx; background: #f8f8f8; height: 1079rpx; position: relative; left: 52rpx; top: 142rpx; display: block; box-sizing: border-box">
-    <button bindtap="gotoIndex" style="position: relative; left: 0rpx; top: 777rpx; width: 574rpx; display: block; box-sizing: border-box">返回</button>
-    <button type="primary" style="position: relative; left: 0rpx; top: 564rpx; width: 574rpx; display: block; box-sizing: border-box">登录</button>
-    <view style="display: flex; flex-direction: column; height: 150px; padding: 10px; margin-bottom: 10px; width: 612rpx; box-sizing: border-box; position: relative; left: 18rpx; top: 50rpx">
-      <view style="background-color: #F1F1F1; flex: 1; position: relative; left: 0rpx; top: 0rpx">
-        <input style="width: 575rpx; display: block; box-sizing: border-box; height: 124rpx" placeholder="用户名" type="text"/>
-        <input style="width: 575rpx; display: block; box-sizing: border-box; height: 124rpx" placeholder="密码" type="text"  />
+    
+    <view style="display: flex; flex-direction: column; padding: 10px; margin-bottom: 10px; width: 612rpx; box-sizing: border-box; position: relative; left: 18rpx; top: 242rpx">
+      <view style="background-color: #F1F1F1; position: relative; left: 0rpx; top: 0rpx; height: 260rpx; display: block; box-sizing: border-box">
+        <form bindsubmit="loginFalied">
+        <input name="number" style="width: 575rpx; display: block; box-sizing: border-box; height: 125rpx" placeholder="学号" type="text"/>
+        <input name="password" style="width: 575rpx; display: block; box-sizing: border-box; height: 125rpx" placeholder="密码" type="text"  />
+        <button type="primary" formType="submit" style="position: relative; left: -2rpx; top: 156rpx; width: 575rpx; display: block; box-sizing: border-box">登录</button>
+      </form>
+      <button bindtap="gotoIndex" style="position: relative; left: 0rpx; top: 193rpx; width: 575rpx; display: block; box-sizing: border-box">返回</button>
       </view>
-      
-      
     </view>
-  
   </view>
 </view>
 

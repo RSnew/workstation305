@@ -1,11 +1,12 @@
 // pages/login.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    alioss : app.globalData.alioss,
   },
 
   /**
@@ -63,10 +64,27 @@ Page({
   onShareAppMessage() {
 
   },
-  
+  /**
+   * 返回主界面
+   */
   gotoIndex:function(e){
     wx.navigateTo({
       url:"/pages/index/index"
     })
+  },
+
+  /**
+   * 登录失败弹窗 
+   */
+  loginFalied:function(e){
+    wx.showModal({
+      title: '警告',
+      content: '用户名或密码错误',
+      showCancel: false,
+      confirmText: '确定',
+      confirmColor: '#3CC51F',
+      success: function(res) {
+      }
+     })
   }
 })

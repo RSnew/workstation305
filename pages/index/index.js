@@ -6,6 +6,7 @@ Page({
   data: {
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
+    alioss : app.globalData.alioss,
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -54,9 +55,8 @@ Page({
   },
 
   gotoLogin:function(e){
-    wx.login({
-      success: (res) => {
-      },
+    wx.navigateTo({
+      url: '/pages/login/login',
     })
   }
 })

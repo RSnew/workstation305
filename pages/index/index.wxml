@@ -1,5 +1,5 @@
 <!--登录-->
-<view class="bg-img bg-mask flex align-center animation-fade" style="background-image: url('icon/login.png');height: 122px;"
+<view class="bg-img bg-mask flex align-center" style="background-image: url('{{alioss}}/indexPicture/icon/login.png');height: 122px;"
   bindtap="gotoLogin">
     <view class="padding-xl text-white">
         <view class="padding-xs text-xxl text-bold">
@@ -11,7 +11,7 @@
     </view>
 </view>
 <!--查看工坊人员-->
-<view class="bg-img bg-mask flex align-center" style="background-image: url('icon/viewUser.png');height: 122px;">
+<view class="bg-img bg-mask flex align-center" style="background-image: url('{{alioss}}/indexPicture/icon/viewUser.png');height: 122px;">
     <view class="padding-xl text-white">
         <view class="padding-xs text-xxl text-bold">
             查看工坊人员
@@ -22,7 +22,7 @@
     </view>
 </view>
 <!--入驻工坊申请-->
-<view class="bg-img bg-mask flex align-center" style="background-image: url('icon/apply.png');height: 122px;">
+<view class="bg-img bg-mask flex align-center" style="background-image: url('{{alioss}}/indexPicture/icon/apply.png');height: 122px;">
     <view class="padding-xl text-white">
         <view class="padding-xs text-xxl text-bold">
             工坊申请
@@ -33,7 +33,7 @@
     </view>
 </view>
 <!--建议-->
-<view class="bg-img bg-mask flex align-center" style="background-image: url('icon/suggestion.png');height: 122px;">
+<view class="bg-img bg-mask flex align-center" style="background-image: url('{{alioss}}/indexPicture/icon/suggestion.png');height: 122px;">
     <view class="padding-xl text-white">
         <view class="padding-xs text-xxl text-bold">
             提意见

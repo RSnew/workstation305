@@ -47,6 +47,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    alioss: "https://sky-bucket-rsnew.oss-cn-huhehaote.aliyuncs.com",
   }
 })
