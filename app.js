@@ -48,6 +48,11 @@ App({
   },
   globalData: {
     userInfo: null,
+    // alioss 容器配置
     alioss: "https://sky-bucket-rsnew.oss-cn-huhehaote.aliyuncs.com",
+    // 登录 session
+    isLogin: false,
+    // 请求地址
+    RequestURL: "http://localhost:8000/"
   }
 })

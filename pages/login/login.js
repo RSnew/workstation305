@@ -72,7 +72,7 @@ Page({
       url:"/pages/index/index"
     })
   },
-
+  
   /**
    * 登录失败弹窗 
    */
@@ -86,5 +86,38 @@ Page({
       success: function(res) {
       }
      })
+  },
+  /**
+   * 登录请求
+   */
+  loginQuery:function(e){
+    var number = e.detail.value.number
+    var password = e.detail.value.password
+    var that=this
+    wx.request({
+      url: app.globalData.RequestURL+'loginQuery/',
+      data: {
+        number: number,
+        password: password
+      },
+      method: 'POST',
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        let status=res.statusCode
+        // console.log(status)
+        if (status=="200"){
+          // 设置 session
+          wx.setStorageSync('isLoginSession',res.data.data.session)
+          wx.redirectTo({
+            url: '/pages/index/index',
+          })
+        }else if(status=="403"){
+          that.loginFalied()
+        }
+      }
+    })
   }
+
 })

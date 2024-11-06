@@ -1,12 +1,24 @@
 <!--登录-->
 <view class="bg-img bg-mask flex align-center" style="background-image: url('{{alioss}}/indexPicture/icon/login.png');height: 122px;"
-  bindtap="gotoLogin">
+  bindtap="gotoLogin" wx:if="{{!isLogin}}">
     <view class="padding-xl text-white">
         <view class="padding-xs text-xxl text-bold">
             登录
         </view>
         <view class="padding-xs text-lg">
             开启工坊之旅
+        </view>
+    </view>
+</view>
+<!--登录成功后显示-->
+<view class="bg-img bg-mask flex align-center" style="background-image: url('{{alioss}}/indexPicture/icon/login.png');height: 122px;"
+  bindtap="" wx:if="{{isLogin}}">
+    <view class="padding-xl text-white">
+        <view class="padding-xs text-xxl text-bold">
+            个人信息
+        </view>
+        <view class="padding-xs text-lg">
+            看看自己学的怎么样
         </view>
     </view>
 </view>

@@ -9,7 +9,7 @@ Page({
     alioss : app.globalData.alioss,
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
   },
   //事件处理函数
   bindViewTap: function() {
@@ -18,6 +18,7 @@ Page({
     })
   },
   onLoad: function () {
+    var that=this;
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -44,6 +45,20 @@ Page({
         }
       })
     }
+    //登录 session 判定
+    wx.getStorage({
+        key: 'isLoginSession',
+        success: function(res) {
+          that.setData({
+            isLogin: true
+          });
+        },
+        fail: function(res) {
+          that.setData({
+            isLogin: false
+        });
+      }
+    })
   },
   getUserInfo: function(e) {
     console.log(e)
