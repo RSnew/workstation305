@@ -6,7 +6,7 @@
       <view style="background-color: #F1F1F1; position: relative; left: 0rpx; top: 0rpx; height: 260rpx; display: block; box-sizing: border-box">
         <form bindsubmit="loginQuery">
         <input name="number" style="width: 575rpx; display: block; box-sizing: border-box; height: 125rpx" placeholder="学号" type="text"/>
-        <input name="password" style="width: 575rpx; display: block; box-sizing: border-box; height: 125rpx" placeholder="密码" type="text"  />
+        <input name="password" style="width: 575rpx; display: block; box-sizing: border-box; height: 125rpx" placeholder="密码" type="password"  />
         <button type="primary" formType="submit" style="position: relative; left: -2rpx; top: 156rpx; width: 575rpx; display: block; box-sizing: border-box">登录</button>
       </form>
       <button bindtap="gotoIndex" style="position: relative; left: 0rpx; top: 193rpx; width: 575rpx; display: block; box-sizing: border-box">返回</button>

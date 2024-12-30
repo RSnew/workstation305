@@ -3,6 +3,6 @@
   "projectname": "workstation305",
   "setting": {
     "compileHotReLoad": true,
-    "urlCheck": false
+    "urlCheck": true
   }
 }

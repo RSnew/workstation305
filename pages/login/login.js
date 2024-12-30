@@ -110,6 +110,7 @@ Page({
         if (status=="200"){
           // 设置 session
           wx.setStorageSync('isLoginSession',res.data.data.session)
+          app.globalData.userInfo=res.data.data.session
           wx.redirectTo({
             url: '/pages/index/index',
           })

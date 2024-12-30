@@ -69,9 +69,19 @@ Page({
     })
   },
 
-  gotoLogin:function(e){
+  toLogin:function(e){
     wx.navigateTo({
       url: '/pages/login/login',
     })
-  }
+  },
+  toViewUsers:function(e){
+    wx.navigateTo({
+      url: '/pages/viewUsers/index',
+    })
+  },
+  toSuggestion:function(e){
+    wx.navigateTo({
+      url: '/pages/suggestion/index',
+    })
+  },
 })

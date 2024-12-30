@@ -1,6 +1,6 @@
 <!--登录-->
 <view class="bg-img bg-mask flex align-center" style="background-image: url('{{alioss}}/indexPicture/icon/login.png');height: 122px;"
-  bindtap="gotoLogin" wx:if="{{!isLogin}}">
+  bindtap="toLogin" wx:if="{{!isLogin}}">
     <view class="padding-xl text-white">
         <view class="padding-xs text-xxl text-bold">
             登录
@@ -23,8 +23,8 @@
     </view>
 </view>
 <!--查看工坊人员-->
-<view class="bg-img bg-mask flex align-center" style="background-image: url('{{alioss}}/indexPicture/icon/viewUser.png');height: 122px;">
-    <view class="padding-xl text-white">
+<view class="bg-img bg-mask flex align-center" style="background-image: url('{{alioss}}/indexPicture/icon/viewUser.png');height: 122px;" >
+    <view class="padding-xl text-white" bindtap="toViewUsers">
         <view class="padding-xs text-xxl text-bold">
             查看工坊人员
         </view>
@@ -45,7 +45,8 @@
     </view>
 </view>
 <!--建议-->
-<view class="bg-img bg-mask flex align-center" style="background-image: url('{{alioss}}/indexPicture/icon/suggestion.png');height: 122px;">
+<view class="bg-img bg-mask flex align-center" style="background-image: url('{{alioss}}/indexPicture/icon/suggestion.png');height: 122px;"
+  bindtap="toSuggestion">
     <view class="padding-xl text-white">
         <view class="padding-xs text-xxl text-bold">
             提意见

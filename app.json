@@ -2,8 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/login/login",
-    "pages//pages/viewUsers",
-    "pages/viewUsers/index"
+    "pages/viewUsers/index",
+    "pages/suggestion/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -14,5 +14,6 @@
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
 }

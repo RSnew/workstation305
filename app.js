@@ -53,6 +53,6 @@ App({
     // 登录 session
     isLogin: false,
     // 请求地址
-    RequestURL: "http://localhost:8000/"
+    RequestURL: "https://2650k15d31.yicp.fun/"
   }
 })

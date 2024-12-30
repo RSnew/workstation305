@@ -1,3 +1,25 @@
-<view>
-
+<view class="bg-img" style="background-image: url('{{alioss}}/loginPicture/icon/loginBackground.png');height: 800px;">
+  <view class="content" style="width: 647rpx; background: #f8f8f8; height: 1079rpx; position: relative; left: 52rpx; top: 142rpx; display: block; box-sizing: border-box">
+    <view style="display: flex; flex-direction: row; height: 120rpx; padding: 10px; margin: 10px; box-sizing: border-box; align-content: center;" >
+      <view style="background-color: #F1F1F1; flex: 1;">学号</view>
+      <view style="background-color: #E6E6E6; flex: 1;">姓名</view>
+      <view style="background-color: #E6E6E6; flex: 1;">工坊时间</view>
+      <!-- 这里以后改成点击学号查看详细信息-->
+      <!-- <view style="background-color: #F1F1F1; flex: 1;">年级</view> -->
+      <!-- <view style="background-color: #F1F1F1; flex: 1;">比赛次数</view> -->
+      <!-- <view style="background-color: #E6E6E6; flex: 1;">获奖次数</view> -->
+      <!-- <view wx:if="" style="background-color: #F1F1F1; flex: 1;">是否为管理员</view> -->
+      <!-- <view wx:if="" style="background-color: #F1F1F1; flex: 1;">密码</view> -->
+    </view>
+  
+    <!-- <view wx:for="{{users}}" wx:for-item="item" style="display: flex; flex-direction: column; height: 87rpx; padding: 10px; margin-bottom: 10px; width: 137rpx; box-sizing: border-box; position: relative; left: 20rpx; top: 2rpx">
+      <view style="background-color: #F1F1F1; flex: 1;">{{item.number}}</view>
+    </view> -->
+    <!-- 以后分页处理-->
+    <view wx:for="{{users}}" wx:for-item="item" style="display: flex; flex-direction: row; height: 87rpx; padding: 10px; margin: 10px; box-sizing: border-box">
+      <view style="background-color: #F1F1F1; flex: 1;">{{item.number}}</view>
+      <view style="background-color: #E6E6E6; flex: 1;">{{item.name}}</view>
+      <view style="background-color: #E6E6E6; flex: 1;">{{item.alltime}}</view>
+    </view>
+</view>
 </view>
