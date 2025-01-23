@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "fui-card": "/firstui/fui-card/fui-card"
+  }
+}

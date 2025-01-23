@@ -1,9 +1,11 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/login/login",
-    "pages/viewUsers/index",
-    "pages/suggestion/index"
+    "pages/indexPage/index",
+    "pages/loginPage/login",
+    "pages/viewUsersPage/index",
+    "pages/userInfoPage/index",
+    "pages/suggestionPage/index"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -13,7 +15,8 @@
   },
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom",
-    "fui-pagination": "/firstui/fui-pagination/fui-pagination"
+    "fui-pagination": "/firstui/fui-pagination/fui-pagination",
+    "fui-card": "/firstui/fui-card/fui-card"
   },
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents"

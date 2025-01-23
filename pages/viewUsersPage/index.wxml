@@ -15,11 +15,16 @@
     <!-- <view wx:for="{{users}}" wx:for-item="item" style="display: flex; flex-direction: column; height: 87rpx; padding: 10px; margin-bottom: 10px; width: 137rpx; box-sizing: border-box; position: relative; left: 20rpx; top: 2rpx">
       <view style="background-color: #F1F1F1; flex: 1;">{{item.number}}</view>
     </view> -->
-    <!-- 以后分页处理-->
-    <view wx:for="{{users}}" wx:for-item="item" style="display: flex; flex-direction: row; height: 87rpx; padding: 10px; margin: 10px; box-sizing: border-box">
-      <view style="background-color: #F1F1F1; flex: 1;">{{item.number}}</view>
-      <view style="background-color: #E6E6E6; flex: 1;">{{item.name}}</view>
-      <view style="background-color: #E6E6E6; flex: 1;">{{item.alltime}}</view>
-    </view>
+    <block wx:for="{{users}}" wx:for-item="subItems" wx:key="index">
+      <block wx:if="{{pageNumber - 1 === index}}">
+      <view wx:for="{{subItems}}"  wx:key="index" wx:for-item="item" style="display: flex; flex-direction: row; height: 87rpx; padding: 10px; margin: 10px; box-sizing: border-box">
+        <view style="background-color: #F1F1F1; flex: 1;">{{item.number}}</view>
+        <view style="background-color: #E6E6E6; flex: 1;">{{item.name}}</view>
+        <view style="background-color: #E6E6E6; flex: 1;">{{item.alltime}}</view>
+      </view>
+      </block>
+    </block>
+    <fui-pagination total="{{usersCount}}" bind:change="changePage" pageSize="{{pageSize}}"></fui-pagination>
+    
 </view>
 </view>

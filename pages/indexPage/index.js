@@ -18,7 +18,7 @@ Page({
     })
   },
   onLoad: function () {
-    var that=this;
+    let that=this;
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -47,7 +47,7 @@ Page({
     }
     //登录 session 判定
     wx.getStorage({
-        key: 'isLoginSession',
+        key: 'userNumber',
         success: function(res) {
           that.setData({
             isLogin: true
@@ -69,19 +69,24 @@ Page({
     })
   },
 
-  toLogin:function(e){
+  toLoginPage:function(e){
     wx.navigateTo({
-      url: '/pages/login/login',
+      url: '/pages/loginPage/login',
     })
   },
-  toViewUsers:function(e){
+  toViewUsersPage:function(e){
     wx.navigateTo({
-      url: '/pages/viewUsers/index',
+      url: '/pages/viewUsersPage/index',
     })
   },
-  toSuggestion:function(e){
+  toSuggestionPage:function(e){
     wx.navigateTo({
-      url: '/pages/suggestion/index',
+      url: '/pages/suggestionPage/index',
+    })
+  },
+  toUserInfoPage:function(e){
+    wx.navigateTo({
+      url: '/pages/userInfoPage/index',
     })
   },
 })

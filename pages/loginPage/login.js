@@ -7,6 +7,7 @@ Page({
    */
   data: {
     alioss : app.globalData.alioss,
+    alert: ""
   },
 
   /**
@@ -74,27 +75,14 @@ Page({
   },
   
   /**
-   * 登录失败弹窗 
-   */
-  loginFalied:function(e){
-    wx.showModal({
-      title: '警告',
-      content: '用户名或密码错误',
-      showCancel: false,
-      confirmText: '确定',
-      confirmColor: '#3CC51F',
-      success: function(res) {
-      }
-     })
-  },
-  /**
    * 登录请求
    */
   loginQuery:function(e){
     let number = e.detail.value.number
     let password = e.detail.value.password
+    let that=this
     wx.request({
-      url: app.globalData.RequestURL+'loginQuery/',
+      url: app.globalData.RequestURL+'userLogin/',
       data: {
         number: number,
         password: password
@@ -104,18 +92,28 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-        let status=res.statusCode
-        // console.log(status)
-        if (status=="200"){
+        
+        // let status=res.statusCode
+        if (res.data.message=="OK"){
           // 设置 session
-          wx.setStorageSync('isLoginSession',res.data.data.session)
+          that.setData({
+            alert:""
+          })
+          wx.setStorageSync('userNumber',res.data.data.session)
           app.globalData.userInfo=res.data.data.session
           wx.redirectTo({
-            url: '/pages/index/index',
+            url: '/pages/indexPage/index',
           })
-        }else if(status=="403"){
-          that.loginFalied()
+        }else if(res.data.message=="Failed"){
+          that.setData({
+            alert:"用户名或密码错误"
+          })
+        }else if(res.data.message=="Empty"){
+          that.setData({
+            alert:"请输入用户名和密码"
+          })
         }
+        console.log(that.data.alert)
       }
     })
   }
