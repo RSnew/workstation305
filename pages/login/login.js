@@ -93,7 +93,6 @@ Page({
   loginQuery:function(e){
     let number = e.detail.value.number
     let password = e.detail.value.password
-    let that=this
     wx.request({
       url: app.globalData.RequestURL+'loginQuery/',
       data: {
