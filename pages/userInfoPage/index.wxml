@@ -11,4 +11,5 @@
         <view>比赛次数：\t{{userInfo.matchTime}}</view>
         <view>胜利次数：\t{{userInfo.matchWinTime}}</view>
     </view>
+    <button bindtap="logout" type="warn" style="width: 100%; margin-top: 20px;">注销</button>
 </fui-card>
