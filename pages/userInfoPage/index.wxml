@@ -1,15 +1,46 @@
 <fui-card title="个人信息" tag="{{userInfo.number}}">
-    <view class="fui-card__content">
-        <view>姓名：\t{{userInfo.name}}</view>
-        <view>专业：\t{{userInfo.major}}</view>
-        <view>学位：\t{{userInfo.degree}}</view>
-        <view>入学年份：\t{{userInfo.inYear}}</view>
-        <view>毕业年份：\t{{userInfo.outYear}}</view>
-        <view>工坊总时长：\t{{userInfo.allTime}}天</view>
-        <view>级别：\t{{userInfo.level}}</view>
-        <view>是否管理员：\t{{userInfo.isAdmin ? '是' : '否'}}</view>
-        <view>比赛次数：\t{{userInfo.matchTime}}</view>
-        <view>胜利次数：\t{{userInfo.matchWinTime}}</view>
-    </view>
+    <fui-list>
+        <fui-list-cell>
+            <text>姓名：</text>
+            <text class="fui-text__explain">{{userInfo.name}}</text>
+        </fui-list-cell>
+        <fui-list-cell>
+            <text>专业：</text>
+            <text class="fui-text__explain">{{userInfo.major}}</text>
+        </fui-list-cell>
+        <fui-list-cell>
+            <text>学位：</text>
+            <text class="fui-text__explain">{{userInfo.degree}}</text>
+        </fui-list-cell>
+        <fui-list-cell>
+            <text>入学年份：</text>
+            <text class="fui-text__explain">{{userInfo.inYear}}</text>
+        </fui-list-cell>
+        <fui-list-cell>
+            <text>毕业年份：</text>
+            <text class="fui-text__explain">{{userInfo.outYear}}</text>
+        </fui-list-cell>
+        <fui-list-cell>
+            <text>工坊总时长：</text>
+            <text class="fui-text__explain">{{userInfo.allTime}}天</text>
+        </fui-list-cell>
+        <fui-list-cell>
+            <text>级别：</text>
+            <text class="fui-text__explain">{{userInfo.level}}</text>
+        </fui-list-cell>
+        
+        <!-- <fui-list-cell> 先不显示
+            <text>是否管理员：</text>
+            <text class="fui-text__explain">{{userInfo.isAdmin ? '是' : '否'}}</text>
+        </fui-list-cell> -->
+        <fui-list-cell>
+            <text>比赛次数：</text>
+            <text class="fui-text__explain">{{userInfo.matchTime}}</text>
+        </fui-list-cell>
+        <fui-list-cell>
+            <text>胜利次数：</text>
+            <text class="fui-text__explain">{{userInfo.matchWinTime}}</text>
+        </fui-list-cell>
+    </fui-list>
     <button bindtap="logout" type="warn" style="width: 100%; margin-top: 20px;">注销</button>
 </fui-card>

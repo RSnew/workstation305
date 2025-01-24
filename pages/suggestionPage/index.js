@@ -27,7 +27,7 @@ Page({
     const request=app.globalData.RequestURL;
     let suggestion = e.detail.value.suggestion;
     wx.request({
-      url: request+'submitSuggestion',
+      url: request+'submitSuggestion/',
       method: 'POST',
       data: {
         suggestion: suggestion
