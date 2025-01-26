@@ -1,30 +1,17 @@
 const app = getApp();
+const globalFunction = require('../../utils/globalFunction.js');
 Page({
   data: {
     userInfo: {}
   },
-  onLoad(options) {
-    let that=this;
-    let userNumber=wx.getStorageSync('userNumber')
-    if (userNumber){
-      wx.request({
-        url: app.globalData.RequestURL + 'get_userInfo/',
-        data: {
-          userNumber: userNumber
-        },
-        header: {
-          'content-type': 'application/json'
-        },
-        success: function (res) {
-          that.setData({
-            userInfo: res.data
-          })
-          console.log(res.data)
-        }
-      });
+  onLoad: async function () {
+    if(app.globalData.userInfo){
+      this.setData({
+        userInfo: app.globalData.userInfo
+      })
     }else{
       wx.navigateTo({
-        url: 'pages/indexPage/index',
+        url: '/pages/indexPage/index'
       })
     }
   },
@@ -58,6 +45,12 @@ Page({
           })
         }
       }
+    })
+  },
+  // 修改密码
+  changePassword() {
+    wx.navigateTo({
+      url: '/pages/changePasswdPage/index'
     })
   },
 });

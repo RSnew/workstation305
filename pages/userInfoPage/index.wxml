@@ -42,5 +42,6 @@
             <text class="fui-text__explain">{{userInfo.matchWinTime}}</text>
         </fui-list-cell>
     </fui-list>
+    <button bindtap="changePassword" type="default" style="width: 100%; margin-top: 20px;">修改密码</button>
     <button bindtap="logout" type="warn" style="width: 100%; margin-top: 20px;">注销</button>
 </fui-card>
