@@ -95,15 +95,25 @@ Page({
         
         // let status=res.statusCode
         if (res.data.message=="OK"){
+          
           // 设置 session
           that.setData({
             alert:""
           })
           wx.setStorageSync('userNumber',res.data.data.session)
           app.globalData.userInfo=res.data.data.session
-          wx.redirectTo({
-            url: '/pages/indexPage/index',
-          })
+          wx.showModal({
+            title: '提示',
+            content: '登录成功',
+            showCancel: false,
+            success(res){
+              if(res.confirm){
+                wx.redirectTo({
+                  url: '/pages/indexPage/index',
+                })
+              }
+            }
+          });
         }else if(res.data.message=="Failed"){
           that.setData({
             alert:"用户名或密码错误"
