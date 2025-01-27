@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "fui-card": "/firstui/fui-card/fui-card",
+    "fui-text":"/firstui/fui-text/fui-text",
+    "fui-list": "/firstui/fui-list/fui-list",
+	  "fui-list-cell": "/firstui/fui-list-cell/fui-list-cell"
+  }
+}

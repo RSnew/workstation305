@@ -1,0 +1,58 @@
+<!--登录-->
+<view class="bg-img bg-mask flex align-center" style="background-image: url('{{alioss}}/indexPicture/icon/login.png');height: 122px;"
+  bindtap="toLoginPage" wx:if="{{!isLogin}}">
+    <view class="padding-xl text-white">
+        <view class="padding-xs text-xxl text-bold">
+            登录
+        </view>
+        <view class="padding-xs text-lg">
+            开启工坊之旅
+        </view>
+    </view>
+</view>
+<!--登录成功后显示-->
+<view class="bg-img bg-mask flex align-center" style="background-image: url('{{alioss}}/indexPicture/icon/login.png');height: 122px;"
+  bindtap="toUserInfoPage" wx:if="{{isLogin}}">
+    <view class="padding-xl text-white">
+        <view class="padding-xs text-xxl text-bold">
+            个人信息
+        </view>
+        <view class="padding-xs text-lg">
+            看看自己学的怎么样
+        </view>
+    </view>
+</view>
+<!--查看工坊人员-->
+<view class="bg-img bg-mask flex align-center" style="background-image: url('{{alioss}}/indexPicture/icon/viewUser.png');height: 122px;" >
+    <view class="padding-xl text-white" bindtap="toViewUsersPage">
+        <view class="padding-xs text-xxl text-bold">
+            查看工坊人员
+        </view>
+        <view class="padding-xs text-lg">
+            看看谁在认真学习
+        </view>
+    </view>
+</view>
+<!--入驻工坊申请-->
+<view class="bg-img bg-mask flex align-center" style="background-image: url('{{alioss}}/indexPicture/icon/apply.png');height: 122px;">
+    <view class="padding-xl text-white">
+        <view class="padding-xs text-xxl text-bold">
+            工坊申请
+        </view>
+        <view class="padding-xs text-lg">
+            想要加入我们？
+        </view>
+    </view>
+</view>
+<!--建议-->
+<view class="bg-img bg-mask flex align-center" style="background-image: url('{{alioss}}/indexPicture/icon/suggestion.png');height: 122px;"
+  bindtap="toSuggestionPage">
+    <view class="padding-xl text-white">
+        <view class="padding-xs text-xxl text-bold">
+            提意见
+        </view>
+        <view class="padding-xs text-lg">
+            有什么建议都可以指出来喔
+        </view>
+    </view>
+</view>

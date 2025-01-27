@@ -1,0 +1,20 @@
+<!--pages/login.wxml-->
+<view class="bg-img" style="background-image: url('{{alioss}}/loginPicture/icon/loginBackground.png');height: 800px;">
+  <view class="content" style="width: 647rpx; background: #f8f8f8; height: 1079rpx; position: relative; left: 52rpx; top: 142rpx; display: block; box-sizing: border-box">
+    
+    <view style="display: flex; flex-direction: column; padding: 10px; margin-bottom: 10px; width: 612rpx; box-sizing: border-box; position: relative; left: 18rpx; top: 242rpx">
+        <view name="alert" style="width: 500rpx; box-sizing: border-box; height: 75rpx; color: red; position: relative; left: 0rpx; top: -100rpx; display: block">{{alert}}</view>
+      <view style="background-color: #F1F1F1; position: relative; left: 0rpx; top: -100rpx; height: 260rpx; display: block; box-sizing: border-box">
+        <form bindsubmit="loginQuery">
+        
+        <input name="number" style="width: 500rpx; display: block; box-sizing: border-box; height: 125rpx" placeholder="学号" type="text"/>
+        <input name="password" style="width: 500rpx; display: block; box-sizing: border-box; height: 125rpx" placeholder="密码" type="password"  />
+        <button type="primary" formType="submit" style="position: relative; left: -2rpx; top: 156rpx; width: 575rpx; display: block; box-sizing: border-box">登录</button>
+      </form>
+      <button bindtap="gotoIndex" style="position: relative; left: 0rpx; top: 193rpx; width: 575rpx; display: block; box-sizing: border-box">返回</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+ 

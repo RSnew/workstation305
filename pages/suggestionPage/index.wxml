@@ -1,0 +1,27 @@
+<view>
+    <view data-block-type="features" data-id="3" draggable="true" class="fdb-block">
+        <view class="container">
+            <view class="row justify-content-center">
+                <view class="col-12 col-md-8 text-center">
+                    <view style="font-weight:bloder;font-size:larger;">意见反馈</view>
+                    <view title="意见反馈-说明文字" class="text-h3">您的意见至关重要，有什么想提的想法或者意见？</view>
+                </view>
+            </view>
+            <view class="row text-left mt-5">
+                <view class="col-12 col-md-4">
+                    <view class="row"></view>
+                </view>
+                <view class="htmlpage-row">
+                    <view class="htmlpage-cell" style="height: 356rpx; display: block; box-sizing: border-box">
+                        <form bindsubmit="submit">
+                            <input name="suggestion" placeholder="请输入您的要求" type="text"></input>
+                            <button type="primary" formType="submit" style="width: 487rpx; display: block; box-sizing: border-box; left: 0rpx; top: 320rpx; position: relative">提交</button>
+                        </form>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    
+</view>
+

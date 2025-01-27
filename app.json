@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/indexPage/index",
+    "pages/loginPage/login",
+    "pages/viewUsersPage/index",
+    "pages/userInfoPage/index",
+    "pages/suggestionPage/index",
+    "pages/changePasswdPage/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "ColorUI",
+    "navigationBarTextStyle": "white"
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom",
+    "fui-pagination": "/firstui/fui-pagination/fui-pagination",
+    "fui-card": "/firstui/fui-card/fui-card",
+    "fui-text": "/firstui/fui-text/fui-text",
+    "fui-list": "/firstui/fui-list/fui-list",
+    "fui-list-cell": "/firstui/fui-list-cell/fui-list-cell",
+    "fui-input": "/firstui/fui-input/fui-input"
+  },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}
