@@ -81,6 +81,9 @@ Page({
     let number = e.detail.value.number
     let password = e.detail.value.password
     let that=this
+    wx.showLoading({
+      title: '登录中',
+    })
     wx.request({
       url: app.globalData.RequestURL+'userLogin/',
       data: {
@@ -96,22 +99,44 @@ Page({
         // let status=res.statusCode
         if (res.data.message=="OK"){
           // 设置 session
-          that.setData({
-            alert:""
-          })
           wx.setStorageSync('userNumber',res.data.data.session)
           app.globalData.userInfo=res.data.data.session
-          wx.redirectTo({
-            url: '/pages/indexPage/index',
+          wx.showToast({
+            title: '登录成功',
+            icon: 'success',
+            duration: 2000
           })
+          setTimeout(() => {
+            wx.redirectTo({
+              url: '/pages/indexPage/index',
+            })
+          }, 2000)
+          
         }else if(res.data.message=="Failed"){
-          that.setData({
-            alert:"用户名或密码错误"
+          wx.showToast({
+            title: '用户名或密码错误',
+            icon: 'error',
+            duration: 2000
           })
         }else if(res.data.message=="Empty"){
-          that.setData({
-            alert:"请输入用户名和密码"
+          wx.showToast({
+            title: '请输入用户名和密码',
+            icon: 'error',
+            duration: 2000
           })
+        }else if(res.data.message=="ChangePasswd"){
+          wx.setStorageSync('userNumber',res.data.data.session)
+          app.globalData.userInfo=res.data.data.session
+          wx.showToast({
+            title: '请修改密码',
+            icon: 'warning',
+            duration: 2000
+          })
+          setTimeout(() => {
+            wx.redirectTo({
+              url: '/pages/indexPage/index',
+            })
+          }, 2000)
         }
         console.log(that.data.alert)
       }

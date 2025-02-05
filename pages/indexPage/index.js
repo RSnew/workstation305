@@ -9,6 +9,7 @@ Page({
     alioss : app.globalData.alioss,
     userInfo: {},
     isLogin: false,
+    isAdmin:false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
   },
   //事件处理函数
@@ -27,6 +28,11 @@ Page({
       that.setData({
         userInfo: user,
         isLogin: true
+      })
+    }
+    if(user.isAdmin){
+      that.setData({
+        isAdmin: true
       })
     }
   },
@@ -59,4 +65,9 @@ Page({
       url: '/pages/userInfoPage/index',
     })
   },
+  toAdminPage:function(e){
+    wx.navigateTo({
+      url: '/pages/adminPage/index',
+    })
+  }
 })

@@ -5,7 +5,10 @@
     "pages/viewUsersPage/index",
     "pages/userInfoPage/index",
     "pages/suggestionPage/index",
+    "pages/adminPage/index",
+    "pages/userSignIn/index",
     "pages/changePasswdPage/index"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

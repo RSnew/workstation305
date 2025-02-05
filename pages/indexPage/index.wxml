@@ -22,6 +22,30 @@
         </view>
     </view>
 </view>
+<!-- 管理员对用户的操作 -->
+<view class="bg-img bg-mask flex align-center" style="background-image: url('{{alioss}}/indexPicture/icon/admin.png');height: 122px;"
+  bindtap="toAdminPage" wx:if="{{isAdmin}}">
+    <view class="padding-xl text-white">
+        <view class="padding-xs text-xxl text-bold">
+            管理员操作
+        </view>
+        <view class="padding-xs text-lg">
+            在这里可以管理用户哦
+        </view>
+    </view>
+</view>
+<!-- 扫码签到界面 -->
+<view class="bg-img bg-mask flex align-center" style="background-image: url('{{alioss}}/indexPicture/icon/ScanPic.png');height: 122px;"
+  bindtap="" wx:if="{{isLogin}}">
+    <view class="padding-xl text-white">
+        <view class="padding-xs text-xxl text-bold">
+            扫码签到
+        </view>
+        <view class="padding-xs text-lg">
+            记录自己的学习成绩吧
+        </view>
+    </view>
+</view>
 <!--查看工坊人员-->
 <view class="bg-img bg-mask flex align-center" style="background-image: url('{{alioss}}/indexPicture/icon/viewUser.png');height: 122px;" >
     <view class="padding-xl text-white" bindtap="toViewUsersPage">

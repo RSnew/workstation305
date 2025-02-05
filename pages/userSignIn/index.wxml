@@ -1,0 +1,11 @@
+<form>
+    <fui-input label="学号" borderTop model:value="{{number}}"></fui-input>
+    <fui-input label="姓名" borderTop model:value="{{name}}"></fui-input>
+    <fui-input label="专业" borderTop model:value="{{major}}"></fui-input>
+    <fui-input label="学历" borderTop model:value="{{degree}}"></fui-input>
+    <fui-input label="入学年份" borderTop model:value="{{inYear}}"></fui-input>
+    <fui-input label="是否管理员" borderTop>
+        <fui-switch bindchange="change"></fui-switch>
+    </fui-input>
+    <button type="primary" bindtap="submit">提交</button>
+</form>

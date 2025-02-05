@@ -1,5 +1,6 @@
 <fui-input label="姓名" borderTop placeholder="{{userInfo.name}}" disabled></fui-input>
 <form>
     <fui-input label="学号" borderTop placeholder="{{userInfo.number}}" disabled></fui-input>
-    <fui-input label="密码" name="newpasswd" borderTop placeholder="请输入新密码" password bind:confirm="changePasswdRequire"></fui-input>
+    <fui-input label="密码" model:value="{{newpasswd}}" borderTop placeholder="请输入新密码" password ></fui-input>
+    <button formType="submit" bindtap="changePasswdRequire">确认修改</button>
 </form>

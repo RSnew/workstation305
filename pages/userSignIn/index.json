@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "添加用户",
+  "usingComponents": {
+    "fui-input": "/firstui/fui-input/fui-input",
+    "fui-switch":"/firstui/fui-switch/fui-switch"
+  }
+}
