@@ -2,20 +2,47 @@ const app = getApp();
 const globalFunction = require('../../utils/globalFunction.js');
 Page({
   data: {
-    userInfo: {}
+    userInfo: {},
+    isMyself: false,
+    userNumber: '',
   },
-  onLoad: async function () {
-    if(app.globalData.userInfo){
-      this.setData({
-        userInfo: app.globalData.userInfo
-      })
-    }else{
-      wx.navigateTo({
-        url: '/pages/indexPage/index'
+  onLoad(options)  {
+    this.setData({
+      userNumber: options.userNumber
+    })
+    console.log(options)
+  },
+  onReady: async function () {
+    let that=this
+    let userNumber=this.data.userNumber
+    wx.showLoading({
+      title: '加载中',
+    })
+    try{
+      let user=await globalFunction.getUserInfo(app, userNumber,that)
+      console.log(user)
+      if (user){
+        that.setData({
+          userInfo: user
+        })
+      }
+    }catch(e){
+      console.log(e)
+      wx.showModal({
+        title: '提示',
+        content: '加载失败，请检查网络',
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateBack({
+              delta: 1
+            })
+          }
+        }
       })
     }
-  },
-  onReady() {
+    finally{
+      wx.hideLoading()
+    }
     
   },
   onShow() {

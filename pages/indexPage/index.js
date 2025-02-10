@@ -19,22 +19,19 @@ Page({
     })
   },
   onLoad: async function () {
-    let that=this;
+    let number=wx.getStorageSync('userNumber')
     //登录 session 判定
-    let user=await globalFunction.getUserInfo(app, that)
-    console.log(user)
-    if (user){
-      app.globalData.userInfo=user
-      that.setData({
-        userInfo: user,
+    if (number){
+      this.setData({
         isLogin: true
       })
     }
-    if(user.isAdmin){
-      that.setData({
-        isAdmin: true
-      })
-    }
+    // 管理员放在个人信息页面
+    // if(user.isAdmin){
+    //   that.setData({
+    //     isAdmin: true
+    //   })
+    // }
   },
   getUserInfo: function(e) {
     console.log(e)
@@ -62,7 +59,7 @@ Page({
   },
   toUserInfoPage:function(e){
     wx.navigateTo({
-      url: '/pages/userInfoPage/index',
+      url: '/pages/userInfoPage/index?userNumber='+wx.getStorageSync('userNumber'),
     })
   },
   toAdminPage:function(e){

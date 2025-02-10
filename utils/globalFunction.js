@@ -1,6 +1,6 @@
-let getUserInfo =async function (app, that) {
+let getUserInfo =async function (app,number,that) {
     return new Promise((resolve, reject) => {
-        let userNumber=wx.getStorageSync('userNumber')
+        let userNumber=number
         if (userNumber){
             wx.request({
                 url: app.globalData.RequestURL + 'get_userInfo/',
