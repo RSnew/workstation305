@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "fui-input": "/firstui/fui-input/fui-input"
+  }
+}

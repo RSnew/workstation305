@@ -1,0 +1,5 @@
+
+<fui-input label="姓名" disabled borderTop placeholder="{{userInfo.name}}"></fui-input>
+<fui-input label="学号" disabled borderTop placeholder="{{userInfo.number}}"></fui-input>
+<fui-input label="座位标签" disabled placeholder="{{scanInfo}}"></fui-input>
+<button class="bind-btn" bindtap="bindSeat">绑定</button>

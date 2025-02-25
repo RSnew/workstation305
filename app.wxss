@@ -1,2 +1,5 @@
 @import "colorui/main.wxss";
 @import "colorui/icon.wxss";
+/*路径需根据实际调整*/
+@import 'firstui/fui-css/firstui.wxss';
+

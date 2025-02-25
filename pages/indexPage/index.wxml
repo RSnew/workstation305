@@ -36,13 +36,25 @@
 </view>
 <!-- 扫码签到界面 -->
 <view class="bg-img bg-mask flex align-center" style="background-image: url('{{alioss}}/indexPicture/icon/ScanPic.png');height: 122px;"
-  bindtap="" wx:if="{{isLogin}}">
+  bindtap="toScanCodePage" wx:if="{{isLogin}}">
     <view class="padding-xl text-white">
         <view class="padding-xs text-xxl text-bold">
             扫码签到
         </view>
         <view class="padding-xs text-lg">
             记录自己的学习成绩吧
+        </view>
+    </view>
+</view>
+<!-- 座位详情 -->
+<view class="bg-img bg-mask flex align-center" style="background-image: url('{{alioss}}/indexPicture/icon/deskInfo.png');height: 122px;"
+  bindtap="toDeskInfo" wx:if="{{isLogin}}">
+    <view class="padding-xl text-white">
+        <view class="padding-xs text-xxl text-bold">
+            座位详情
+        </view>
+        <view class="padding-xs text-lg">
+            看看这屋怎么样👀
         </view>
     </view>
 </view>

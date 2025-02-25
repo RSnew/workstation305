@@ -4,7 +4,7 @@
     <fui-card title="座位预定查看" url="/pages/adminPage/userManage/index" ></fui-card>
     <fui-card title="批量签到" url="/pages/adminPage/userManage/index" ></fui-card>
     <!-- 把平面图弄到这里-->
-    <fui-card title="修改座位信息" url="/pages/adminPage/userManage/index" ></fui-card>
+    <fui-card title="修改座位信息" bindtap="toDeskInfo"></fui-card>
     <fui-card title="管理设备信息" url="/pages/adminPage/userManage/index" ></fui-card>
     <fui-card title="设备预约查看" url="/pages/adminPage/userManage/index" ></fui-card>
     <fui-card title="设备借用查看" url="/pages/adminPage/userManage/index" ></fui-card>

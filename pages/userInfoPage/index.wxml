@@ -1,47 +1,56 @@
 <fui-card title="个人信息" tag="{{userInfo.number}}">
-    <fui-list>
-        <fui-list-cell>
-            <text>姓名：</text>
-            <text class="fui-text__explain">{{userInfo.name}}</text>
-        </fui-list-cell>
-        <fui-list-cell>
-            <text>专业：</text>
-            <text class="fui-text__explain">{{userInfo.major}}</text>
-        </fui-list-cell>
-        <fui-list-cell>
-            <text>学位：</text>
-            <text class="fui-text__explain">{{userInfo.degree}}</text>
-        </fui-list-cell>
-        <fui-list-cell>
-            <text>入学年份：</text>
-            <text class="fui-text__explain">{{userInfo.inYear}}</text>
-        </fui-list-cell>
-        <fui-list-cell>
-            <text>毕业年份：</text>
-            <text class="fui-text__explain">{{userInfo.outYear}}</text>
-        </fui-list-cell>
-        <fui-list-cell>
-            <text>工坊总时长：</text>
-            <text class="fui-text__explain">{{userInfo.allTime}}天</text>
-        </fui-list-cell>
-        <fui-list-cell>
-            <text>级别：</text>
-            <text class="fui-text__explain">{{userInfo.level}}</text>
-        </fui-list-cell>
-        
-        <!-- <fui-list-cell> 先不显示
-            <text>是否管理员：</text>
-            <text class="fui-text__explain">{{userInfo.isAdmin ? '是' : '否'}}</text>
-        </fui-list-cell> -->
-        <fui-list-cell>
-            <text>比赛次数：</text>
-            <text class="fui-text__explain">{{userInfo.matchTime}}</text>
-        </fui-list-cell>
-        <fui-list-cell>
-            <text>胜利次数：</text>
-            <text class="fui-text__explain">{{userInfo.matchWinTime}}</text>
-        </fui-list-cell>
-    </fui-list>
-    <button bindtap="changePassword" type="default" style="width: 100%; margin-top: 20px;">修改密码</button>
-    <button bindtap="logout" type="warn" style="width: 100%; margin-top: 20px;">注销</button>
+   <fui-list>
+       <fui-list-cell>
+           <text>姓名：</text>
+           <input wx:if="{{isEdit}}" class="fui-text__explain" type="text" value="{{userInfo.name}}" bindinput="bindNameInput" />
+           <text wx:else class="fui-text__explain">{{userInfo.name}}</text>
+       </fui-list-cell>
+       <fui-list-cell>
+           <text>专业：</text>
+           <input wx:if="{{isEdit}}" class="fui-text__explain" type="text" value="{{userInfo.major}}" bindinput="bindMajorInput" />
+           <text wx:else class="fui-text__explain">{{userInfo.major}}</text>
+       </fui-list-cell>
+       <fui-list-cell>
+           <text>学位：</text>
+           <input wx:if="{{isEdit}}" class="fui-text__explain" type="text" value="{{userInfo.degree}}" bindinput="bindDegreeInput" />
+           <text wx:else class="fui-text__explain">{{userInfo.degree}}</text>
+       </fui-list-cell>
+       <fui-list-cell>
+           <text>入学年份：</text>
+           <input wx:if="{{isEdit}}" class="fui-text__explain" type="text" value="{{userInfo.inYear}}" bindinput="bindInYearInput" />
+           <text wx:else class="fui-text__explain">{{userInfo.inYear}}</text>
+       </fui-list-cell>
+       <fui-list-cell>
+           <text>毕业年份：</text>
+           <input wx:if="{{isEdit}}" class="fui-text__explain" type="text" value="{{userInfo.outYear}}" bindinput="bindOutYearInput" />
+           <text wx:else class="fui-text__explain">{{userInfo.outYear}}</text>
+       </fui-list-cell>
+       <fui-list-cell>
+           <text>工坊总时长：</text>
+           <input wx:if="{{isEdit}}" class="fui-text__explain" type="text" value="{{userInfo.allTime}}" bindinput="bindAllTimeInput" />
+           <text wx:else class="fui-text__explain">{{userInfo.allTime}}天</text>
+       </fui-list-cell>
+       <fui-list-cell>
+           <text>级别：</text>
+           <input wx:if="{{isEdit}}" class="fui-text__explain" type="text" value="{{userInfo.level}}" bindinput="bindLevelInput" />
+           <text wx:else class="fui-text__explain">{{userInfo.level}}</text>
+       </fui-list-cell>
+       <fui-list-cell>
+           <text>比赛次数：</text>
+           <input wx:if="{{isEdit}}" class="fui-text__explain" type="text" value="{{userInfo.matchTime}}" bindinput="bindMatchTimeInput" />
+           <text wx:else class="fui-text__explain">{{userInfo.matchTime}}</text>
+       </fui-list-cell>
+       <fui-list-cell>
+           <text>胜利次数：</text>
+           <input wx:if="{{isEdit}}" class="fui-text__explain" type="text" value="{{userInfo.matchWinTime}}" bindinput="bindMatchWinTimeInput" />
+           <text wx:else class="fui-text__explain">{{userInfo.matchWinTime}}</text>
+       </fui-list-cell>
+   </fui-list>
+   <button wx:if="{{isMyself}}" bindtap="changePassword" type="default" style="width: 100%; margin-top: 20px;">修改密码</button>
+   <button wx:if="{{isChange}}" bindtap="toggleEdit" type="default" style="width: 100%; margin-top: 20px;">
+         <text wx:if="{{isEdit}}">保存</text>
+         <text wx:else>修改用户信息</text>
+   </button>
+   <button wx:if="{{isAdmin}}" bindtap="toAdminPage" type="default" style="width: 100%; margin-top: 20px;">管理员</button>
+   <button wx:if="{{isMyself}}" bindtap="logout" type="warn" style="width: 100%; margin-top: 20px;">注销</button>
 </fui-card>

@@ -21,9 +21,23 @@ Page({
   onLoad: async function () {
     let number=wx.getStorageSync('userNumber')
     //登录 session 判定
-    if (number){
+    if (number ){
+      if(app.globalData.userInfo){
+        this.setData({
+          isLogin: true
+        })
+      }else{
+        let user=await globalFunction.getUserInfo(app, number)
+        if(user){
+          this.setData({
+            isLogin: true
+          })
+        }
+      }
+      
+    }else{
       this.setData({
-        isLogin: true
+        isLogin: false
       })
     }
     // 管理员放在个人信息页面
@@ -66,5 +80,15 @@ Page({
     wx.navigateTo({
       url: '/pages/adminPage/index',
     })
-  }
+  },
+  toDeskInfo:function(e){
+    wx.navigateTo({
+      url: '/pages/deskInfo/index',
+    })
+  },
+  toScanCodePage:function(e){
+    wx.navigateTo({
+      url: '/pages/scanCodePage/scanCode',
+    })
+  },
 })

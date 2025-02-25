@@ -1,5 +1,6 @@
 // pages/login.js
 const app = getApp()
+let globalFunction = require('../../utils/globalFunction.js')
 Page({
 
   /**
@@ -94,18 +95,29 @@ Page({
       header: {
         'content-type': 'application/json'
       },
-      success: function (res) {
+      success: async function (res) {
         
         // let status=res.statusCode
-        if (res.data.message=="OK"){
+        if (res.data.message=="OK" || res.data.message=="ChangePasswd"){
           // 设置 session
           wx.setStorageSync('userNumber',res.data.data.session)
-          app.globalData.userInfo=res.data.data.session
-          wx.showToast({
-            title: '登录成功',
-            icon: 'success',
-            duration: 2000
-          })
+          let userNumber=wx.getStorageSync('userNumber')
+          let userInfo= await globalFunction.getUserInfo(app, userNumber,that)
+          app.globalData.userInfo=userInfo
+          console.log(app.globalData.userInfo)
+          if(res.data.message=="OK"){
+            wx.showToast({
+              title: '登录成功',
+              icon: 'success',
+              duration: 2000
+            })
+          }else{
+            wx.showToast({
+              title: '请修改密码',
+              icon: 'warning',
+              duration: 2000
+            })
+          }
           setTimeout(() => {
             wx.redirectTo({
               url: '/pages/indexPage/index',
@@ -124,21 +136,7 @@ Page({
             icon: 'error',
             duration: 2000
           })
-        }else if(res.data.message=="ChangePasswd"){
-          wx.setStorageSync('userNumber',res.data.data.session)
-          app.globalData.userInfo=res.data.data.session
-          wx.showToast({
-            title: '请修改密码',
-            icon: 'warning',
-            duration: 2000
-          })
-          setTimeout(() => {
-            wx.redirectTo({
-              url: '/pages/indexPage/index',
-            })
-          }, 2000)
         }
-        console.log(that.data.alert)
       }
     })
   }

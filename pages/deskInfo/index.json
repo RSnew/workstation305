@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "fui-row": "/firstui/fui-row/fui-row",
+    "fui-col": "/firstui/fui-col/fui-col"
+  }
+}

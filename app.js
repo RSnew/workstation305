@@ -27,6 +27,9 @@ App({
     // 登录 session
     isLogin: false,
     // 请求地址
-    RequestURL: "https://www.workstation305.cn/"
+    // RequestURL: "https://www.workstation305.cn:8000/",
+    RequestURL: "http://www.workstation305.cn/",
+    // 扫码信息
+    scanInfo: '',
   }
 })
