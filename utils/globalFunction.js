@@ -21,6 +21,24 @@ let getUserInfo =async function (app,number,that) {
         }
     })
 }
+let send_customer_message = async function (app, openid, message) {
+    return new Promise((resolve, reject) => {
+        wx.request({
+            url:  app.globalData.RequestURL+'send_customer_message/',
+            method: 'POST',
+            data: {
+              openid: openid,
+              message: message
+            },
+            success(res) {
+              console.log('发送客服消息成功:', res.data);
+            },
+            fail(error) {
+              console.error('发送客服消息失败:', error);
+            }
+          });
+    })
+}
 module.exports = {
     getUserInfo: getUserInfo
 }

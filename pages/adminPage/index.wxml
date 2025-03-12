@@ -1,10 +1,11 @@
 <fui-list>
     <fui-card title="用户注册" bindtap="toUserSignIn" ></fui-card>
-    <fui-card title="修改用户信息" url="/pages/adminPage/userManage/index" ></fui-card>
+    <fui-card title="座位预定审核" bindtap="toReviewSeat" ></fui-card>
+    <!-- <fui-card title="修改用户信息" url="/pages/adminPage/userManage/index" ></fui-card>
     <fui-card title="座位预定查看" url="/pages/adminPage/userManage/index" ></fui-card>
-    <fui-card title="批量签到" url="/pages/adminPage/userManage/index" ></fui-card>
+    <fui-card title="批量签到" url="/pages/adminPage/userManage/index" ></fui-card> -->
     <!-- 把平面图弄到这里-->
-    <fui-card title="修改座位信息" bindtap="toDeskInfo"></fui-card>
+    <!-- <fui-card title="修改座位信息" bindtap="toDeskInfo"></fui-card>
     <fui-card title="管理设备信息" url="/pages/adminPage/userManage/index" ></fui-card>
     <fui-card title="设备预约查看" url="/pages/adminPage/userManage/index" ></fui-card>
     <fui-card title="设备借用查看" url="/pages/adminPage/userManage/index" ></fui-card>
@@ -14,5 +15,5 @@
     <fui-card title="查看统计报表" url="/pages/adminPage/userManage/index" ></fui-card>
     <fui-card title="查看后台日志" url="/pages/adminPage/userManage/index" ></fui-card>
     <fui-card title="证书管理" url="/pages/adminPage/userManage/index" ></fui-card>
-    <fui-card title="查看用户意见" url="/pages/adminPage/userManage/index" ></fui-card>
+    <fui-card title="查看用户意见" url="/pages/adminPage/userManage/index" ></fui-card> -->
 </fui-list>

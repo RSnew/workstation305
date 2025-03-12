@@ -1,9 +1,19 @@
-<view class="bg-img" style="background-image: url('{{alioss}}/loginPicture/icon/loginBackground.png');height: 800px;">
+<view class="bg-img" style="background-image: url('{{alioss}}/loginPicture/icon/loginBackground.png');height: 800px; ">
+  <view style="width: 70%; background-color: #E6E6E6; padding: 6px; display: flex; align-items: center; position: relative; left: 113rpx; top: 72rpx;">
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{options}}">
+      <view class="picker">
+        当前房屋：{{options[index]}}
+      </view>
+    </picker>
+  </view>
+  <button bindtap="toReverseSeat" type="default" style=" top: 100rpx; width: 210rpx;  box-sizing: border-box; height: 70rpx; font-size: 16px;text-align:center;padding:-5px;">预定座位</button>
   <view class="content" style="width: 647rpx; background: #f8f8f8; height: 1079rpx; position: relative; left: 52rpx; top: 142rpx; display: block; box-sizing: border-box">
-    <view style="display: flex; flex-direction: row; height: 120rpx; padding: 10px; margin: 10px; box-sizing: border-box; align-content: center;" >
+
+
+    <view style="display: flex; flex-direction: row; height: 120rpx; padding: 10px; margin: 10px; box-sizing: border-box; align-content: center;">
       <view style="background-color: #F1F1F1; width: 218rpx; display: block; box-sizing: border-box">座位编号</view>
-      <view style="background-color: #E6E6E6; flex: 1;">是否长期桌</view>
       <view style="background-color: #E6E6E6; flex: 1;">是否被占用</view>
+      <view style="background-color: #E6E6E6; flex: 1;">持有人</view>
       <!-- 这里以后改成点击学号查看详细信息-->
       <!-- <view style="background-color: #F1F1F1; flex: 1;">年级</view> -->
       <!-- <view style="background-color: #F1F1F1; flex: 1;">比赛次数</view> -->
@@ -11,33 +21,31 @@
       <!-- <view wx:if="" style="background-color: #F1F1F1; flex: 1;">是否为管理员</view> -->
       <!-- <view wx:if="" style="background-color: #F1F1F1; flex: 1;">密码</view> -->
     </view>
-  
+
     <!-- <view wx:for="{{users}}" wx:for-item="item" style="display: flex; flex-direction: column; height: 87rpx; padding: 10px; margin-bottom: 10px; width: 137rpx; box-sizing: border-box; position: relative; left: 20rpx; top: 2rpx">
       <view style="background-color: #F1F1F1; flex: 1;">{{item.number}}</view>
     </view> -->
     <block wx:for="{{desks}}" wx:for-item="subItems" wx:key="index">
       <block wx:if="{{pageNumber - 1 === index}}">
-      <view wx:for="{{subItems}}"  wx:key="index" wx:for-item="item" style="display: flex; flex-direction: row; height: 87rpx; padding: 10px; margin: 10px; box-sizing: border-box">
-        <view style="background-color: #F1F1F1; flex: 1;">{{item.SN}}</view>
-        <view style="background-color: #E6E6E6; flex: 1; text-align:center">
-          <block wx:if="{{item.isLongTerm}}">
-            是
-          </block>
-          <block wx:else>
-            否
-          </block>
+        <view wx:for="{{subItems}}" wx:key="index" wx:for-item="item" style="display: flex; flex-direction: row; height: 87rpx; padding: 10px; margin: 10px; box-sizing: border-box">
+          <view style="background-color: #F1F1F1; flex: 1;">{{item.SN}}</view>
+          <view style="background-color: #E6E6E6; flex: 1; text-align:center">
+            <block wx:if="{{item.isOccupied}}">
+              是
+            </block>
+            <block wx:else>
+              否
+            </block>
+          </view>
+          <view style="background-color: #E6E6E6; flex: 1; text-align:center">
+            {{item.name}}
+          </view>
         </view>
-        <view style="background-color: #E6E6E6; flex: 1; text-align:center">
-          <block wx:if="{{item.isOccupied}}">
-            是
-          </block>
-          <block wx:else>
-            否
-          </block>
-        </view>
-      </view>
       </block>
     </block>
     <fui-pagination total="{{desksCount}}" bind:change="changePage" pageSize="{{pageSize}}"></fui-pagination>
+  </view>
+
+  
 </view>
-</view>
+<!-- width: 529rpx; height: 66rpx;-->

@@ -45,6 +45,13 @@ Page({
       method: 'POST',
       success: (res) => {
         switch(res.data.status){
+          case 202:
+            that.showModal('提示', '座位已被绑定', ()=>{
+              wx.navigateTo({
+                url: '/pages/indexPage/index',
+              });
+            })
+            break
           case 201:
             that.handleBindSeatFail()
             break

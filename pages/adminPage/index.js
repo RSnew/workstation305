@@ -33,5 +33,10 @@ Page({
     wx.navigateTo({
       url: '/pages/deskInfo/index'
     });
+  },
+  toReviewSeat(){
+    wx.navigateTo({
+      url: '/pages/reviewSeat/index'
+    });
   }
 });

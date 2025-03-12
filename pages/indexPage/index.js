@@ -40,12 +40,42 @@ Page({
         isLogin: false
       })
     }
-    // 管理员放在个人信息页面
-    // if(user.isAdmin){
-    //   that.setData({
-    //     isAdmin: true
-    //   })
-    // }
+    if(wx.getStorageSync('isAdmin')){
+      this.setData({
+        isAdmin: true
+      })
+    }
+  },
+  onReady: function () {
+    if (!wx.getStorageSync('openid')) {
+      wx.login({
+        success(res) {
+          if (res.code) {
+            console.log('登录成功，code:', res.code);
+            // 将 code 发送到服务器
+            wx.request({
+              url: app.globalData.RequestURL+'get_openid/',
+              method: 'POST',
+              data: {
+                code: res.code
+              },
+              success(response) {
+                console.log('服务器返回的 openid:', response.data.openid);
+                wx.setStorageSync('openid', response.data.openid);
+              },
+              fail(error) {
+                console.error('请求服务器失败:', error);
+              }
+            });
+          } else {
+            console.error('登录失败:', res.errMsg);
+          }
+        },
+        fail(error) {
+          console.error('wx.login 调用失败:', error);
+        }
+      });
+    }
   },
   getUserInfo: function(e) {
     console.log(e)
@@ -91,4 +121,8 @@ Page({
       url: '/pages/scanCodePage/scanCode',
     })
   },
+  //客服接口测试
+  handleContact(e) {
+    console.log('客服会话回调:', e.detail);
+  }
 })

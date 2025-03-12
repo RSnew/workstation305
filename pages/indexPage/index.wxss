@@ -1,0 +1,13 @@
+.custom-button {
+    padding: 0; /* 去除默认内边距 */
+    margin: 0; /* 去除默认外边距 */
+    background: none; /* 去除默认背景色 */
+    border: none; /* 去除默认边框 */
+    line-height: normal; /* 去除默认行高 */
+    border-radius: 0; /* 去除默认圆角 */
+    text-align: left; /* 去除默认文本居中 */
+  }
+  
+  .custom-button::after {
+    border: none; /* 去除 button 的默认边框 */
+  }

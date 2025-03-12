@@ -1,0 +1,38 @@
+<view class="bg-img" style="background-image: url('{{alioss}}/loginPicture/icon/loginBackground.png');height: 800px; ">
+    <view class="content" style="width: 647rpx; background: #f8f8f8; height: 1079rpx; position: relative; left: 52rpx; top: 142rpx; display: block; box-sizing: border-box">
+
+    <view style="display: flex; flex-direction: row; height: 120rpx; padding: 10px; margin: 10px; box-sizing: border-box; align-content: center;">
+      <view style="background-color: #F1F1F1; width: 218rpx; display: block; box-sizing: border-box">座位编号</view>
+      <view style="background-color: #E6E6E6; flex: 1;">可预约</view>
+      <view style="background-color: #E6E6E6; flex: 1;">操作</view>
+    </view>
+    <block wx:for="{{desks}}" wx:for-item="subItems" wx:key="index">
+      <block wx:if="{{pageNumber - 1 === index}}">
+        <view wx:for="{{subItems}}" wx:key="index" wx:for-item="item" style="display: flex; flex-direction: row; height: 87rpx; padding: 10px; margin: 10px; box-sizing: border-box">
+          <view style="background-color: #F1F1F1; flex: 1;">{{item.SN}}</view>
+          <view style="background-color: #E6E6E6; flex: 1; text-align:center">
+            <block wx:if="{{item.isRent}}">
+              是
+            </block>
+            <block wx:else>
+              否
+            </block>
+          </view>
+          <view style="background-color: #E6E6E6; flex: 1; text-align:center">
+            <block wx:if="{{!item.isChecked}}">
+              <button bindtap="showActionSheet" data-sn="{{item.SN}}" style="width: 100%; height: 100%; padding: 0; margin: 0; line-height: normal; border: none;font-size:14px;">
+                预约</button>
+            </block>
+            <block wx:else>
+              <button bindtap="cancelReserve" data-sn="{{item.SN}}" style="width: 100%; height: 100%; padding: 0; margin: 0; line-height: normal; border: none;font-size:14px;">
+                取消预约</button>
+            </block>
+            
+          </view>
+        </view>
+      </block>
+    </block>
+    <fui-pagination total="{{desksCount}}" bind:change="changePage" pageSize="{{pageSize}}"></fui-pagination>
+  </view>
+
+</view>

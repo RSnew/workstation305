@@ -22,19 +22,30 @@ Page({
       title: '加载中',
     })
     try{
-      let user=await globalFunction.getUserInfo(app, userNumber,that)
-      console.log(user)
-      if (user){
-        that.setData({
-          userInfo: user
-        })
-        app.globalData.userInfo=user
+      let userInfo={
+          number: wx.getStorageSync("userNumber"),
+          name: wx.getStorageSync("userName"),
+          major: wx.getStorageSync("major"),
+          degree: wx.getStorageSync("degree"),
+          inYear: wx.getStorageSync("inYear"),
+          outYear: wx.getStorageSync("outYear"),
+          allTime: wx.getStorageSync("allTime"),
+          level: wx.getStorageSync("level"),
+          matchTime: wx.getStorageSync("matchTime"),
+          matchWinTime: wx.getStorageSync("matchWinTime"),
+          isAdmin: wx.getStorageSync("isAdmin")
       }
+      if(!app.globalData.userInfo){
+        app.globalData.userInfo=userInfo
+      }
+      that.setData({
+        userInfo: userInfo
+      })
       if(userNumber==wx.getStorageSync('userNumber')){
         that.setData({
           isMyself: true
         })
-        if(user.isAdmin){
+        if(userInfo.isAdmin){
           that.setData({
             isAdmin: true
           })
@@ -141,8 +152,17 @@ Page({
         matchTime: userInfo.matchTime,
         matchWinTime: userInfo.matchWinTime
       },
-      success: function (res) {
+      success: async function (res) {
         if (res.data.status == 200) {
+          let userNumber=that.data.userNumber
+          let user=await globalFunction.getUserInfo(app, userNumber,that)
+          console.log(user)
+          if (user){
+            that.setData({
+              userInfo: user
+            })
+            // app.globalData.userInfo=user
+          }
           wx.showToast({
             title: '保存成功',
             icon: 'success',

@@ -3,17 +3,21 @@
   "projectname": "workstation305",
   "setting": {
     "compileHotReLoad": true,
-    "urlCheck": false
+    "urlCheck": true
   },
   "condition": {
     "miniprogram": {
       "list": [
         {
-          "name": "pages/bindSeatPage/bindSeat",
-          "pathName": "pages/bindSeatPage/bindSeat",
+          "name": "pages/deskInfo/index",
+          "pathName": "pages/deskInfo/index",
           "query": "",
           "launchMode": "default",
-          "scene": 1000
+          "scene": 1000,
+          "partialCompile": {
+            "enabled": true,
+            "pages": []
+          }
         }
       ]
     }

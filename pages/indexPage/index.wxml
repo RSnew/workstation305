@@ -81,14 +81,15 @@
     </view>
 </view>
 <!--建议-->
-<view class="bg-img bg-mask flex align-center" style="background-image: url('{{alioss}}/indexPicture/icon/suggestion.png');height: 122px;"
-  bindtap="toSuggestionPage">
+<button open-type="contact" bindcontact="handleContact" class="custom-button">
+  <view class="bg-img bg-mask flex align-center" style="background-image: url('{{alioss}}/indexPicture/icon/suggestion.png');height: 122px;">
     <view class="padding-xl text-white">
-        <view class="padding-xs text-xxl text-bold">
-            提意见
-        </view>
-        <view class="padding-xs text-lg">
-            有什么建议都可以指出来喔
-        </view>
+      <view class="padding-xs text-xxl text-bold" style="text-align: left;">
+        提意见
+      </view>
+      <view class="padding-xs text-lg">
+        有什么建议都可以指出来喔
+      </view>
     </view>
-</view>
+  </view>
+</button>

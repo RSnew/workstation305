@@ -10,7 +10,9 @@
     "pages/changePasswdPage/index",
     "pages/scanCodePage/scanCode",
     "pages/deskInfo/index",
-    "pages/bindSeatPage/bindSeat"
+    "pages/reserveSeat/index",
+    "pages/bindSeatPage/bindSeat",
+    "pages/reviewSeat/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

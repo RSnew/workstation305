@@ -100,9 +100,33 @@ Page({
         // let status=res.statusCode
         if (res.data.message=="OK" || res.data.message=="ChangePasswd"){
           // 设置 session
-          wx.setStorageSync('userNumber',res.data.data.session)
-          let userNumber=wx.getStorageSync('userNumber')
-          let userInfo= await globalFunction.getUserInfo(app, userNumber,that)
+          let session=res.data.userInfo
+          console.log(session)
+          // wx.setStorage('userNumber',session.number)
+          wx.setStorageSync("userNumber",session.number)
+          wx.setStorageSync("userName",session.name)
+          wx.setStorageSync("major",session.major)
+          wx.setStorageSync("degree",session.degree)
+          wx.setStorageSync("inYear",session.inYear)
+          wx.setStorageSync("outYear",session.outYear)
+          wx.setStorageSync("allTime",session.allTime)
+          wx.setStorageSync("level",session.level)
+          wx.setStorageSync("matchTime",session.matchTime)
+          wx.setStorageSync("matchWinTime",session.matchWinTime)
+          wx.setStorageSync("isAdmin",session.isAdmin)
+          let userInfo= {
+            number: wx.getStorageSync("userNumber"),
+            name: wx.getStorageSync("userName"),
+            major: wx.getStorageSync("major"),
+            degree: wx.getStorageSync("degree"),
+            inYear: wx.getStorageSync("inYear"),
+            outYear: wx.getStorageSync("outYear"),
+            allTime: wx.getStorageSync("allTime"),
+            level: wx.getStorageSync("level"),
+            matchTime: wx.getStorageSync("matchTime"),
+            matchWinTime: wx.getStorageSync("matchWinTime"),
+            isAdmin: wx.getStorageSync("isAdmin")
+          }
           app.globalData.userInfo=userInfo
           console.log(app.globalData.userInfo)
           if(res.data.message=="OK"){
