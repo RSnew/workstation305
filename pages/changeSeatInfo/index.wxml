@@ -1,0 +1,55 @@
+<fui-alert type="warn" isLeft spacing title="座位信息为数据库自动配置，非必要请勿更改，可能会引起重大问题" size="28rpx" marginTop="{{24}}">
+	<fui-icon name="warning" size="{{48}}" color="#fff"></fui-icon>
+</fui-alert>
+<fui-card title="座位信息" tag="{{deskInfo.SN}}">
+   <fui-list>
+       <fui-list-cell>
+           <text>座位号</text>
+           <text class="fui-text__explain">{{deskInfo.SN}}</text>
+       </fui-list-cell>
+       <fui-list-cell>
+           <text>座位状态</text>
+            <picker bindchange="bindPickerChange"  wx:if="{{isEdit}}" mode="selector" range="{{rangeZH}}" value="{{index}}">{{statusMap[range[index]]}}</picker>
+           <text wx:else class="fui-text__explain">{{statusMap[deskInfo.status]}}</text>
+       </fui-list-cell>
+       <fui-list-cell>
+           <text>位置</text>
+           <picker bindchange="bindPickerChangeLocation" wx:if="{{isEdit}}" class="fui-text__explain" mode="selector" range="{{room}}" value="{{indexRoom}}">{{deskInfo.room}}</picker>
+           <text wx:else class="fui-text__explain">{{deskInfo.room}}</text>
+       </fui-list-cell>
+       <fui-list-cell>
+           <text>是否长期占用</text>
+            <fui-switch wx:if="{{isEdit}}" checked="{{deskInfo.isOccupied}}" bindchange="handleOccupiedChange"></fui-switch>
+            <block wx:if="{{!isEdit}}">
+            
+            <block wx:if="{{deskInfo.isOccupied}}">
+                <text class="fui-text__explain">是</text>
+            </block>
+                <block wx:else>
+                    <text class="fui-text__explain">否</text>
+                </block>
+            </block>
+       </fui-list-cell>
+       <fui-list-cell>
+           <text>是否可租借</text>
+            <fui-switch wx:if="{{isEdit}}" bindchange="handleRentChange" checked="{{deskInfo.isRent}}"></fui-switch>
+           <block wx:if="{{!isEdit}}">
+            <block wx:if="{{deskInfo.isRent}}">
+                <text class="fui-text__explain">是</text>
+            </block>
+                <block wx:else>
+                    <text class="fui-text__explain">否</text>
+                </block>
+            </block>
+       </fui-list-cell>
+       <fui-list-cell>
+           <text>租借时间</text>
+           <input wx:if="{{isEdit}}" class="fui-text__explain" type="text" value="{{deskInfo.rentTime}}" bindinput="bindTimeInput" />
+           <text wx:else class="fui-text__explain">{{deskInfo.rentTime}}天</text>
+       </fui-list-cell>
+   </fui-list>
+   <button wx:if="{{isChange}}" bindtap="toggleEdit" type="default" style="width: 100%; margin-top: 20px;">
+         <text wx:if="{{isEdit}}">保存</text>
+         <text wx:else>修改座位信息</text>
+   </button>
+</fui-card>

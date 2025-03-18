@@ -38,5 +38,20 @@ Page({
     wx.navigateTo({
       url: '/pages/reviewSeat/index'
     });
+  },
+  toChangeSeat(){
+    wx.navigateTo({
+      url: '/pages/changeSeat/index'
+    });
+  },
+  toAddSeat(){
+    wx.navigateTo({
+      url: '/pages/addSeat/index'
+    });
+  },
+  toDeleteSeat(){
+    wx.navigateTo({
+      url: '/pages/deleteSeat/index'
+    });
   }
 });

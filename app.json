@@ -12,7 +12,12 @@
     "pages/deskInfo/index",
     "pages/reserveSeat/index",
     "pages/bindSeatPage/bindSeat",
-    "pages/reviewSeat/index"
+    "pages/changeSeat/index",
+    "pages/reviewSeat/index",
+    "pages/addSeat/index",
+    "pages/deleteSeat/index",
+    "pages/changeSeatInfo/index"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "fui-switch":"/firstui/fui-switch/fui-switch",
+    "fui-alert":"/firstui/fui-alert/fui-alert"
+  }
+}

@@ -11,7 +11,7 @@
         <view wx:for="{{subItems}}" wx:key="index" wx:for-item="item" style="display: flex; flex-direction: row; height: 87rpx; padding: 10px; margin: 10px; box-sizing: border-box">
           <view style="background-color: #F1F1F1; flex: 1;">{{item.SN}}</view>
           <view style="background-color: #E6E6E6; flex: 1; text-align:center">
-            <block wx:if="{{item.isRent}}">
+            <block wx:if="{{item.status=='waiting'}}">
               是
             </block>
             <block wx:else>
@@ -19,9 +19,13 @@
             </block>
           </view>
           <view style="background-color: #E6E6E6; flex: 1; text-align:center">
-            <block wx:if="{{!item.isChecked}}">
+            <block wx:if="{{item.status=='waiting'}}">
               <button bindtap="showActionSheet" data-sn="{{item.SN}}" style="width: 100%; height: 100%; padding: 0; margin: 0; line-height: normal; border: none;font-size:14px;">
                 预约</button>
+            </block>
+            <block wx:elif="{{item.status=='approved'}}">
+              <button disabled data-sn="{{item.SN}}" style="width: 100%; height: 100%; padding: 0; margin: 0; line-height: normal; border: none;font-size:14px;">
+                已被预约</button>
             </block>
             <block wx:else>
               <button bindtap="cancelReserve" data-sn="{{item.SN}}" style="width: 100%; height: 100%; padding: 0; margin: 0; line-height: normal; border: none;font-size:14px;">

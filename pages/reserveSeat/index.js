@@ -75,6 +75,7 @@ Page({
   showActionSheet:function(e){
     let that = this;
     const currentSN = e.currentTarget.dataset.sn;
+    const userNumber = wx.getStorageSync('userNumber');
     console.log('当前座位编号：', currentSN);
     //pass 通过
     wx.showActionSheet({
@@ -89,6 +90,7 @@ Page({
           method: 'POST',
           contentType: 'application/json',
           data:{
+            userNumber: userNumber,
             desk_sn: currentSN,
             days: res.tapIndex+1
           },
@@ -109,12 +111,61 @@ Page({
           }
         })
         wx.hideLoading()
-        that.listDesks()
       },
       fail: function (res) {
         console.log(res.errMsg)
+      },
+      complete: function (res) {
+        that.listDesks()
       }
     })
-  },
 
+  },
+  cancelReserve:function(e){
+    let that = this;
+    const currentSN = e.currentTarget.dataset.sn;
+    const userNumber = wx.getStorageSync('userNumber');
+    console.log('当前座位编号：', currentSN);
+    wx.showModal({
+      title: '提示',
+      content: '确定取消预约？',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          wx.showLoading()
+          wx.request({
+            url: app.globalData.RequestURL+'cancel_booking_desk/',
+            method: 'POST',
+            contentType: 'application/json',
+            data:{
+              userNumber: userNumber,
+              desk_sn: currentSN
+            },
+            success:(res)=>{
+              wx.showToast({
+                title: '取消预约成功',
+                icon: 'success',
+                duration: 2000
+              })
+              that.listDesks()
+            },
+            fail:(res)=>{
+              console.log(res)
+              wx.showToast({
+                title: '取消预约失败',
+                icon: 'fail',
+                duration: 2000
+              })
+            },
+            complete: function (res) {
+              wx.hideLoading()
+            }
+          })
+          
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      },
+    })
+  }
 });

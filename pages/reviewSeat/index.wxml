@@ -1,3 +1,19 @@
-<view>
-
-</view>
+<fui-section class="fui-section-css" isLine title="预约座位审核" ></fui-section>
+<block wx:if="{{seatList.length == 0}}">
+    <i-divider content="加载已经完成,没有其他数据"></i-divider>
+</block>
+<block wx:else>
+    <block wx:for="{{seatList}}" wx:key="index">
+        <i-card title="预约座位提醒" extra="座位">
+            <view slot="content">用户 {{item.name}} 预定了座位</view>
+            <view slot="content">座位号：{{item.seat}}</view>
+            <view slot="content">SN号： {{item.SN}}</view>
+            <view slot="content">教室：{{item.room}}</view>
+            <view slot="content">天数：{{item.days}}</view>
+            <view slot="footer">
+                <button bindtap="acceptPenddingSeat" data-index="{{index}}" type="primary">接受</button>
+                <button bindtap="rejectPenddingSeat" data-index="{{index}}" type="warn">拒绝</button>
+            </view>
+        </i-card>
+    </block>
+</block>

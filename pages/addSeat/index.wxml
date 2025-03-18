@@ -1,0 +1,52 @@
+<fui-alert type="warn" isLeft spacing title="座位信息为数据库自动配置，非必要请勿更改，可能会引起重大问题" size="28rpx" marginTop="{{24}}">
+	<fui-icon name="warning" size="{{48}}" color="#fff"></fui-icon>
+</fui-alert>
+<view class="container">
+
+  <fui-card title="添加座位信息">
+    <fui-list>
+      <!-- 座位号 -->
+      <fui-list-cell>
+        <text>座位号</text>
+        <input class="fui-input" placeholder="请输入座位号" value="{{seatInfo.SN}}" bindinput="bindSNInput" />
+      </fui-list-cell>
+
+      <!-- 座位状态 -->
+      <fui-list-cell>
+        <text>座位状态</text>
+        <picker mode="selector" range="{{statusOptions}}" bindchange="bindStatusChange">
+          <view class="picker">
+            {{seatInfo.status ? seatInfo.status : '请选择座位状态'}}
+          </view>
+        </picker>
+      </fui-list-cell>
+
+      <!-- 位置 -->
+      <fui-list-cell>
+        <text>位置</text>
+        <input class="fui-input" placeholder="请输入位置" value="{{seatInfo.room}}" bindinput="bindRoomInput" />
+      </fui-list-cell>
+
+      <!-- 是否长期占用 -->
+      <fui-list-cell>
+        <text>是否长期占用</text>
+        <fui-switch checked="{{seatInfo.isOccupied}}" bindchange="handleOccupiedChange"></fui-switch>
+      </fui-list-cell>
+
+      <!-- 是否可租借 -->
+      <fui-list-cell>
+        <text>是否可租借</text>
+        <fui-switch checked="{{seatInfo.isRent}}" bindchange="handleRentChange"></fui-switch>
+      </fui-list-cell>
+
+      <!-- 租借时间 -->
+      <fui-list-cell>
+        <text>租借时间</text>
+        <input class="fui-input" placeholder="请输入租借时间（天）" value="{{seatInfo.rentTime}}" bindinput="bindRentTimeInput" />
+      </fui-list-cell>
+    </fui-list>
+
+    <!-- 提交按钮 -->
+    <button bindtap="submitForm" type="primary" style="width: 100%; margin-top: 20px;">提交</button>
+  </fui-card>
+</view>

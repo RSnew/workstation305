@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "fui-switch":"/firstui/fui-switch/fui-switch",
+    "fui-alert":"/firstui/fui-alert/fui-alert",
+    "fui-section":"/firstui/fui-section/fui-section",
+    "i-card": "/iview/card/index",
+    "i-divider": "/iview/divider/index"
+  }
+}

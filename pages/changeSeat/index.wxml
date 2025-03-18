@@ -1,0 +1,48 @@
+<view class="bg-img" style="background-image: url('{{alioss}}/loginPicture/icon/loginBackground.png');height: 800px; ">
+  <view style="width: 70%; background-color: #E6E6E6; padding: 6px; display: flex; align-items: center; position: relative; left: 113rpx; top: 72rpx;">
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{options}}">
+      <view class="picker">
+        当前房屋：{{options[index]}}
+      </view>
+    </picker>
+  </view>
+    <view class="content" style="width: 647rpx; background: #f8f8f8; height: 1079rpx; position: relative; left: 52rpx; top: 142rpx; display: block; box-sizing: border-box">
+
+
+    <view style="display: flex; flex-direction: row; height: 120rpx; padding: 10px; margin: 10px; box-sizing: border-box; align-content: center;">
+      <view style="background-color: #F1F1F1; width: 218rpx; display: block; box-sizing: border-box">座位编号</view>
+      <view style="background-color: #E6E6E6; flex: 1;">更改座位信息</view>
+      <!-- 这里以后改成点击学号查看详细信息-->
+      <!-- <view style="background-color: #F1F1F1; flex: 1;">年级</view> -->
+      <!-- <view style="background-color: #F1F1F1; flex: 1;">比赛次数</view> -->
+      <!-- <view style="background-color: #E6E6E6; flex: 1;">获奖次数</view> -->
+      <!-- <view wx:if="" style="background-color: #F1F1F1; flex: 1;">是否为管理员</view> -->
+      <!-- <view wx:if="" style="background-color: #F1F1F1; flex: 1;">密码</view> -->
+    </view>
+
+    <!-- <view wx:for="{{users}}" wx:for-item="item" style="display: flex; flex-direction: column; height: 87rpx; padding: 10px; margin-bottom: 10px; width: 137rpx; box-sizing: border-box; position: relative; left: 20rpx; top: 2rpx">
+      <view style="background-color: #F1F1F1; flex: 1;">{{item.number}}</view>
+    </view> -->
+    <block wx:for="{{desks}}" wx:for-item="subItems" wx:key="index">
+      <block wx:if="{{pageNumber - 1 === index}}">
+        <view wx:for="{{subItems}}" wx:key="index" wx:for-item="item" style="display: flex; flex-direction: row; height: 87rpx; padding: 10px; margin: 10px; box-sizing: border-box">
+          <view style="background-color: #F1F1F1; flex: 1;">{{item.SN}}</view>
+          <view style="background-color: #E6E6E6; flex: 1; text-align:center">
+             <button 
+          style="font-size: 12px; width: 100%; height: 100%;  border: none; background-color: transparent; color: rgb(123, 123, 245);"
+          plain="true" 
+          data-sn="{{item.SN}}"
+          bindtap="changeSeat"
+        >
+          更改
+        </button>
+          </view>
+        </view>
+      </block>
+    </block>
+    <fui-pagination total="{{desksCount}}" bind:change="changePage" pageSize="{{pageSize}}"></fui-pagination>
+  </view>
+
+  
+</view>
+<!-- width: 529rpx; height: 66rpx;-->

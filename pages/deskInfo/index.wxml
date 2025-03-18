@@ -30,7 +30,7 @@
         <view wx:for="{{subItems}}" wx:key="index" wx:for-item="item" style="display: flex; flex-direction: row; height: 87rpx; padding: 10px; margin: 10px; box-sizing: border-box">
           <view style="background-color: #F1F1F1; flex: 1;">{{item.SN}}</view>
           <view style="background-color: #E6E6E6; flex: 1; text-align:center">
-            <block wx:if="{{item.isOccupied}}">
+            <block wx:if="{{item.status==='approved'||item.isOccupied}}">
               是
             </block>
             <block wx:else>

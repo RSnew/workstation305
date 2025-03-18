@@ -1,0 +1,43 @@
+<view class="container">
+    <fui-alert type="warn" isLeft spacing title="请谨慎操作，删除后数据无法恢复" size="28rpx" marginTop="{{24}}">
+        <fui-icon name="warning" size="{{48}}" color="#fff"></fui-icon>
+    </fui-alert>
+
+    <!-- 座位列表 -->
+    <block wx:for="{{seatList}}" wx:for-item="subItems" wx:key="index">
+        <block wx:if="{{pageNumber - 1 === index}}">
+            <view wx:for="{{subItems}}" wx:key="index" wx:for-item="item">
+                <fui-card margin="20rpx" index="{{index}}">
+                    <view class="fui-card__content">
+                        <fui-list>
+                            <fui-list-cell>
+                                <text>座位编号</text>
+                                <text class="fui-text__explain">{{item.SN}}</text>
+                            </fui-list-cell>
+                            <fui-list-cell>
+                                <text>座位状态</text>
+                                <text class="fui-text__explain">{{statusMap[item.status]}}</text>
+                            </fui-list-cell>
+                            <fui-list-cell>
+                                <text>是否长期占用</text>
+                                <text class="fui-text__explain">{{item.isOccupied ? '是' : '否'}}</text>
+                            </fui-list-cell>
+                            <fui-list-cell>
+                                <text>是否可租借</text>
+                                <text class="fui-text__explain">{{item.isRent ? '是' : '否'}}</text>
+                            </fui-list-cell>
+                            <fui-list-cell>
+                                <text>租借时间</text>
+                                <text class="fui-text__explain">{{item.rentTime}}天</text>
+                            </fui-list-cell>
+                        </fui-list>
+                    </view>
+                    <view slot="footer">
+                        <button bindtap="deleteSeat" data-index="{{index}}" type="warn" style="width: 100%;">删除</button>
+                    </view>
+                </fui-card>
+            </view>
+        </block>
+    </block>
+    <fui-pagination total="{{deskCount}}" bind:change="changePage" pageSize="{{pageSize}}"></fui-pagination>
+</view>

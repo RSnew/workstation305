@@ -1,0 +1,8 @@
+.fui-section-css{
+    background-color: #f8f8f8;
+    padding: 20rpx;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+    border-radius: 10rpx;
+    box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.1);
+}
