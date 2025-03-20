@@ -1,0 +1,6 @@
+/* 自定义内容区样式需自行控制 */
+.fui-scroll__view {
+	width: 400rpx;
+	flex: 1;
+	overflow: hidden;
+}

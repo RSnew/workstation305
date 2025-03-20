@@ -121,8 +121,18 @@ Page({
       url: '/pages/scanCodePage/scanCode',
     })
   },
+  toDeviceView(e){
+    wx.navigateTo({
+      url: '/pages/deviceView/index',
+    })
+  },
+  toTeamInfo(e){
+    wx.navigateTo({
+      url: '/pages/teamInfo/index',
+    })
+  },
   //客服接口测试
   handleContact(e) {
     console.log('客服会话回调:', e.detail);
-  }
+  },
 })

@@ -69,6 +69,28 @@
         </view>
     </view>
 </view>
+<!--查看实验室设备-->
+<view class="bg-img bg-mask flex align-center" style="background-image: url('{{alioss}}/indexPicture/icon/device.png');height: 122px;" >
+    <view class="padding-xl text-white" bindtap="toDeviceView">
+        <view class="padding-xs text-xxl text-bold">
+            查看实验室设备
+        </view>
+        <view class="padding-xs text-lg">
+            屋里有什么宝贝🤩
+        </view>
+    </view>
+</view>
+<!--查看战队-->
+<view class="bg-img bg-mask flex align-center" style="background-image: url('{{alioss}}/indexPicture/icon/team.jpg');height: 122px;" >
+    <view class="padding-xl text-white" bindtap="toTeamInfo">
+        <view class="padding-xs text-xxl text-bold">
+            查看战队
+        </view>
+        <view class="padding-xs text-lg">
+            大家都很强
+        </view>
+    </view>
+</view>
 <!--入驻工坊申请-->
 <view class="bg-img bg-mask flex align-center" style="background-image: url('{{alioss}}/indexPicture/icon/apply.png');height: 122px;">
     <view class="padding-xl text-white">

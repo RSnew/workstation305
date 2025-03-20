@@ -18,26 +18,13 @@ Page({
   onReady: async function () {
     let that=this
     let userNumber=this.data.userNumber
+
     wx.showLoading({
       title: '加载中',
     })
     try{
-      let userInfo={
-          number: wx.getStorageSync("userNumber"),
-          name: wx.getStorageSync("userName"),
-          major: wx.getStorageSync("major"),
-          degree: wx.getStorageSync("degree"),
-          inYear: wx.getStorageSync("inYear"),
-          outYear: wx.getStorageSync("outYear"),
-          allTime: wx.getStorageSync("allTime"),
-          level: wx.getStorageSync("level"),
-          matchTime: wx.getStorageSync("matchTime"),
-          matchWinTime: wx.getStorageSync("matchWinTime"),
-          isAdmin: wx.getStorageSync("isAdmin")
-      }
-      if(!app.globalData.userInfo){
-        app.globalData.userInfo=userInfo
-      }
+      let userInfo=await globalFunction.getUserInfo(app, userNumber,that)
+      console.log(userInfo)
       that.setData({
         userInfo: userInfo
       })
@@ -45,7 +32,7 @@ Page({
         that.setData({
           isMyself: true
         })
-        if(userInfo.isAdmin){
+        if(wx.getStorageSync('isAdmin')){
           that.setData({
             isAdmin: true
           })
@@ -102,6 +89,17 @@ Page({
       success: function (res) {
         if (res.confirm) {
           wx.removeStorageSync('userNumber')
+          wx.removeStorageSync('userName')
+          wx.removeStorageSync('major')
+          wx.removeStorageSync('degree')
+          wx.removeStorageSync('inYear')
+          wx.removeStorageSync('outYear')
+          wx.removeStorageSync('allTime')
+          wx.removeStorageSync('level')
+          wx.removeStorageSync('matchTime')
+          wx.removeStorageSync('matchWinTime')
+          wx.removeStorageSync('isAdmin')
+          app.globalData.userInfo = null
           wx.navigateTo({
             url: '/pages/indexPage/index'
           })

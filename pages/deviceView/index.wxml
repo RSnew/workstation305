@@ -1,0 +1,68 @@
+<view class="container">
+  <fui-card title="实验室设备列表">
+    <block wx:for="{{deviceList}}" wx:key="deviceID">
+    <fui-card title="设备ID：{{item.deviceID}}" tag="{{item.type}}" margin="20rpx">
+      <fui-list>
+        <!-- 设备名称 -->
+        <fui-list-cell>
+          <text>设备名称</text>
+          <text class="fui-text__explain">{{item.deviceName}}</text>
+        </fui-list-cell>
+
+        <!-- 设备类型 -->
+        <fui-list-cell>
+          <text>设备类型</text>
+          <text class="fui-text__explain">{{item.type}}</text>
+        </fui-list-cell>
+
+        <!-- 设备状态 -->
+        <fui-list-cell>
+          <text>设备状态</text>
+          <text class="fui-text__explain">{{item.status}}</text>
+        </fui-list-cell>
+
+        <!-- 是否可租借 -->
+        <fui-list-cell>
+          <text>是否可租借</text>
+          <text class="fui-text__explain">{{item.isRent ? '是' : '否'}}</text>
+        </fui-list-cell>
+
+        <!-- 租借时间 -->
+        <fui-list-cell>
+          <text>租借时间</text>
+          <text class="fui-text__explain">{{item.rentTime}} 天</text>
+        </fui-list-cell>
+
+        <!-- 占用编号 -->
+        <fui-list-cell>
+          <text>占用编号</text>
+          <text class="fui-text__explain">{{item.occupiedNumber || '无'}}</text>
+        </fui-list-cell>
+        <!-- 已占用提示 -->
+        <fui-list-cell wx:if="{{item.isOccupied}}">
+          <text class="fui-text__explain" style="color: red;">已被占用</text>
+        </fui-list-cell>
+        <!-- 不可租借提示 -->
+        <fui-list-cell wx:if="{{!item.isRent}}">
+          <text class="fui-text__explain" style="color: red;">不可租借</text>
+        </fui-list-cell>
+        <!-- 租借按钮 -->
+        <fui-list-cell wx:if="{{item.isRent && !item.isOccupied}}">
+          <button bindtap="rentDevice" data-index="{{index}}" type="primary" size="mini">租借</button>
+        </fui-list-cell>
+        <!-- 等待审核按钮 -->
+        <fui-list-cell wx:elif="{{item.isPending}}">
+          <button disabeld data-index="{{index}}" type="primary" size="mini">等待审核</button>
+        </fui-list-cell>
+        <!-- 不可租借按钮 -->
+        <fui-list-cell wx:else>
+          <button disabled data-index="{{index}}" type="primary" size="mini">不可租借</button>
+        </fui-list-cell>
+
+        
+      </fui-list>
+      <view class="divider"></view>
+      </fui-card> 
+    </block>
+  </fui-card>
+</view>

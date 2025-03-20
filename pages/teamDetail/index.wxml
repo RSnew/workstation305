@@ -1,0 +1,74 @@
+<fui-list-cell>
+  <view>战队总数：{{teamList.length}}</view>
+</fui-list-cell>
+<view class="list-container">
+  <block wx:for="{{teamList}}" wx:key="id">
+    <fui-card title="战队ID：{{item.teamID}}" tag="{{item.teamName}}" margin="20rpx">
+      <view class="fui-card__content">
+        <fui-list>
+          <!-- 战队名称 -->
+          <fui-list-cell>
+            <text>战队名称</text>
+            <input wx:if="{{isEdit && editIndex === index}}" class="fui-text__explain" type="text" value="{{item.teamName}}" bindinput="bindTeamNameInput" data-index="{{index}}" />
+            <text wx:else class="fui-text__explain">{{item.teamName}}</text>
+          </fui-list-cell>
+          <!-- 战队口号 -->
+          <fui-list-cell>
+            <text>战队口号</text>
+            <input wx:if="{{isEdit && editIndex === index}}" class="fui-text__explain" type="text" value="{{item.teamSlogan}}" bindinput="bindTeamSloganInput" data-index="{{index}}" />
+            <text wx:else class="fui-text__explain">{{item.teamSlogan}}</text>
+          </fui-list-cell>
+          <!-- 指导老师 -->
+          <fui-list-cell>
+            <text>指导老师</text>
+            <input wx:if="{{isEdit && editIndex === index}}" class="fui-text__explain" type="text" value="{{item.instructor}}" bindinput="bindInstructorInput" data-index="{{index}}" />
+            <text wx:else class="fui-text__explain">{{item.instructor}}</text>
+          </fui-list-cell>
+          <!-- 成员1 -->
+          <fui-list-cell>
+            <text>成员1</text>
+            <input wx:if="{{isEdit && editIndex === index}}" class="fui-text__explain" type="text" value="{{item.number_1}}" bindinput="bindNumber1Input" data-index="{{index}}" />
+            <text wx:else class="fui-text__explain">{{item.number_1}}</text>
+          </fui-list-cell>
+          <!-- 成员2 -->
+          <fui-list-cell>
+            <text>成员2</text>
+            <input wx:if="{{isEdit && editIndex === index}}" class="fui-text__explain" type="text" value="{{item.number_2}}" bindinput="bindNumber2Input" data-index="{{index}}" />
+            <text wx:else class="fui-text__explain">{{item.number_2}}</text>
+          </fui-list-cell>
+          <!-- 成员3 -->
+          <fui-list-cell>
+            <text>成员3</text>
+            <input wx:if="{{isEdit && editIndex === index}}" class="fui-text__explain" type="text" value="{{item.number_3}}" bindinput="bindNumber3Input" data-index="{{index}}" />
+            <text wx:else class="fui-text__explain">{{item.number_3}}</text>
+          </fui-list-cell>
+          <!-- 成员4 -->
+          <fui-list-cell>
+            <text>成员4</text>
+            <input wx:if="{{isEdit && editIndex === index}}" class="fui-text__explain" type="text" value="{{item.number_4}}" bindinput="bindNumber4Input" data-index="{{index}}" />
+            <text wx:else class="fui-text__explain">{{item.number_4}}</text>
+          </fui-list-cell>
+          <!-- 候补成员1 -->
+          <fui-list-cell>
+            <text>候补成员1</text>
+            <input wx:if="{{isEdit && editIndex === index}}" class="fui-text__explain" type="text" value="{{item.waiting_number_1}}" bindinput="bindWaitingNumber1Input" data-index="{{index}}" />
+            <text wx:else class="fui-text__explain">{{item.waiting_number_1}}</text>
+          </fui-list-cell>
+          <!-- 候补成员2 -->
+          <fui-list-cell>
+            <text>候补成员2</text>
+            <input wx:if="{{isEdit && editIndex === index}}" class="fui-text__explain" type="text" value="{{item.waiting_number_2}}" bindinput="bindWaitingNumber2Input" data-index="{{index}}" />
+            <text wx:else class="fui-text__explain">{{item.waiting_number_2}}</text>
+          </fui-list-cell>
+        </fui-list>
+      </view>
+      <view class="fui-card__footer">
+        <button bindtap="toggleEdit" data-index="{{index}}" type="default" style="width: 70%;">
+          <text wx:if="{{isEdit && editIndex === index}}">保存</text>
+          <text wx:else>修改</text>
+        </button>
+        <button bindtap="deleteTeam" data-index="{{index}}" type="warn" style="width: 70%;">删除</button>
+      </view>
+    </fui-card>
+  </block>
+</view>

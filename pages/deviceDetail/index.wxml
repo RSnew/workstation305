@@ -1,0 +1,56 @@
+<fui-list-cell>
+  <view>设备总数：{{deviceList.length}}</view>
+</fui-list-cell>
+<view class="list-container">
+  <block wx:for="{{deviceList}}" wx:key="id">
+    <fui-card title="设备ID：{{item.deviceID}}" tag="{{item.type}}" margin="20rpx">
+      <view class="fui-card__content">
+        <fui-list>
+          <!-- 设备名称 -->
+          <fui-list-cell>
+            <text>设备名称</text>
+            <input wx:if="{{isEdit && editIndex === index}}" class="fui-text__explain" type="text" value="{{item.deviceName}}" bindinput="bindDeviceNameInput" data-index="{{index}}" />
+            <text wx:else class="fui-text__explain">{{item.deviceName}}</text>
+          </fui-list-cell>
+          <!-- 设备状态 -->
+          <fui-list-cell>
+            <text>设备状态</text>
+            <input wx:if="{{isEdit && editIndex === index}}" class="fui-text__explain" type="text" value="{{item.status}}" bindinput="bindStatusInput" data-index="{{index}}" />
+            <text wx:else class="fui-text__explain">{{item.status}}</text>
+          </fui-list-cell>
+          <!-- 是否租借 -->
+          <fui-list-cell>
+            <text>是否租借</text>
+            <switch wx:if="{{isEdit && editIndex === index}}" checked="{{item.isRent}}" bind:change="bindIsRentChange" data-index="{{index}}" />
+            <text wx:else class="fui-text__explain">{{item.isRent ? '是' : '否'}}</text>
+          </fui-list-cell>
+          <!-- 是否被占用 -->
+          <fui-list-cell>
+            <text>是否被占用</text>
+            <switch wx:if="{{isEdit && editIndex === index}}" checked="{{item.isOccupied}}" bind:change="bindIsOccupiedChange" data-index="{{index}}" />
+            <text wx:else class="fui-text__explain">{{item.isOccupied ? '是' : '否'}}</text>
+          </fui-list-cell>
+          <!-- 租借时间 -->
+          <fui-list-cell>
+            <text>租借时间</text>
+            <input wx:if="{{isEdit && editIndex === index}}" class="fui-text__explain" type="text" value="{{item.rentTime}}" bindinput="bindRentTimeInput" data-index="{{index}}" />
+            <text wx:else class="fui-text__explain">{{item.rentTime}}</text>
+          </fui-list-cell>
+          <!-- 当前持有人学号 -->
+          <fui-list-cell>
+            <text>当前持有人学号</text>
+            <input wx:if="{{isEdit && editIndex === index}}" class="fui-text__explain" type="text" value="{{item.occupiedNumber}}" bindinput="bindOccupiedNumberInput" data-index="{{index}}" />
+            <text wx:else class="fui-text__explain">{{item.occupiedNumber}}</text>
+          </fui-list-cell>
+        </fui-list>
+      </view>
+      <view class="fui-card__footer">
+        <button bindtap="toggleEdit" data-index="{{index}}" type="default" style="width: 70%;">
+          <text wx:if="{{isEdit && editIndex === index}}">保存</text>
+          <text wx:else>修改</text>
+        </button>
+        <button bindtap="deleteDevice" data-index="{{index}}" type="warn" style="width: 70%;">删除</button>
+      </view>
+    </fui-card>
+  </block>
+</view>

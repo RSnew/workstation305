@@ -1,0 +1,63 @@
+<view class="container">
+
+  <fui-card title="添加战队信息">
+    <fui-list>
+      <!-- 战队名称 -->
+      <fui-list-cell>
+        <text>战队名称</text>
+        <input class="fui-input" placeholder="请输入战队名称" value="{{teamInfo.teamName}}" bindinput="bindTeamNameInput" />
+      </fui-list-cell>
+
+      <!-- 战队口号 -->
+      <fui-list-cell>
+        <text>战队口号</text>
+        <input class="fui-input" placeholder="请输入战队口号" value="{{teamInfo.teamSlogan}}" bindinput="bindTeamSloganInput" />
+      </fui-list-cell>
+
+      <!-- 指导老师 -->
+      <fui-list-cell>
+        <text>指导老师</text>
+        <input class="fui-input" placeholder="请输入指导老师" value="{{teamInfo.instructor}}" bindinput="bindInstructorInput" />
+      </fui-list-cell>
+
+      <!-- 成员1 -->
+      <fui-list-cell>
+        <text>队长</text>
+        <input class="fui-input" placeholder="请输入队长学号" value="{{teamInfo.number_1}}" bindinput="bindNumber1Input" />
+      </fui-list-cell>
+
+      <!-- 成员2 -->
+      <fui-list-cell>
+        <text>队员1</text>
+        <input class="fui-input" placeholder="请输入队员1学号（选填）" value="{{teamInfo.number_2}}" bindinput="bindNumber2Input" />
+      </fui-list-cell>
+
+      <!-- 成员3 -->
+      <fui-list-cell>
+        <text>队员2</text>
+        <input class="fui-input" placeholder="请输入队员2学号（选填）" value="{{teamInfo.number_3}}" bindinput="bindNumber3Input" />
+      </fui-list-cell>
+
+      <!-- 成员4 -->
+      <fui-list-cell>
+        <text>队员3</text>
+        <input class="fui-input" placeholder="请输入队员3学号（选填）" value="{{teamInfo.number_4}}" bindinput="bindNumber4Input" />
+      </fui-list-cell>
+
+      <!-- 候补成员1 -->
+      <fui-list-cell>
+        <text>候补队员1</text>
+        <input class="fui-input" placeholder="候补队员1学号（选填）" value="{{teamInfo.waiting_number_1}}" bindinput="bindWaitingNumber1Input" />
+      </fui-list-cell>
+
+      <!-- 候补成员2 -->
+      <fui-list-cell>
+        <text>候补队员2</text>
+        <input class="fui-input" placeholder="候补队员2学号（选填）" value="{{teamInfo.waiting_number_2}}" bindinput="bindWaitingNumber2Input" />
+      </fui-list-cell>
+    </fui-list>
+
+    <!-- 提交按钮 -->
+    <button bindtap="submitForm" type="primary" style="width: 100%; margin-top: 20px;">提交</button>
+  </fui-card>
+</view>

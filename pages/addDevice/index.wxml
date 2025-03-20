@@ -1,0 +1,59 @@
+<view class="container">
+
+  <fui-card title="添加设备信息">
+    <fui-list>
+      <!-- 设备名称 -->
+      <fui-list-cell>
+        <text>设备名称</text>
+        <input class="fui-input" placeholder="请输入设备名称" value="{{deviceInfo.deviceName}}" bindinput="bindDeviceNameInput" />
+      </fui-list-cell>
+
+      <!-- 设备类型 -->
+      <fui-list-cell>
+        <text>设备类型</text>
+        <picker mode="selector" range="{{typeOptions}}" bindchange="bindTypeChange">
+          <view class="picker">
+            {{deviceInfo.type ? deviceInfo.type : '请选择设备类型'}}
+          </view>
+        </picker>
+      </fui-list-cell>
+
+      <!-- 设备状态 -->
+      <fui-list-cell>
+        <text>设备状态</text>
+        <picker mode="selector" range="{{statusOptions}}" bindchange="bindStatusChange">
+          <view class="picker">
+            {{deviceInfo.status ? deviceInfo.status : '请选择设备状态'}}
+          </view>
+        </picker>
+      </fui-list-cell>
+
+      <!-- 是否被占用 -->
+      <fui-list-cell>
+        <text>是否被占用</text>
+        <fui-switch checked="{{deviceInfo.isOccupied}}" bindchange="handleOccupiedChange"></fui-switch>
+      </fui-list-cell>
+
+      <!-- 是否可租借 -->
+      <fui-list-cell>
+        <text>是否可租借</text>
+        <fui-switch checked="{{deviceInfo.isRent}}" bindchange="handleRentChange"></fui-switch>
+      </fui-list-cell>
+
+      <!-- 租借时间 -->
+      <fui-list-cell>
+        <text>租借时间</text>
+        <input class="fui-input" placeholder="请输入租借时间（天）" value="{{deviceInfo.rentTime}}" bindinput="bindRentTimeInput" />
+      </fui-list-cell>
+
+      <!-- 占用编号 -->
+      <fui-list-cell>
+        <text>当前持有人学号</text>
+        <input class="fui-input" placeholder="请输入当前持有人学号" value="{{deviceInfo.occupiedNumber}}" bindinput="bindOccupiedNumberInput" />
+      </fui-list-cell>
+    </fui-list>
+
+    <!-- 提交按钮 -->
+    <button bindtap="submitForm" type="primary" style="width: 100%; margin-top: 20px;">提交</button>
+  </fui-card>
+</view>

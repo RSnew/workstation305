@@ -1,0 +1,19 @@
+<fui-section class="fui-section-css" isLine title="设备预定审核"></fui-section>
+<block wx:if="{{deviceList.length == 0}}">
+    <i-divider content="加载已经完成,没有其他数据"></i-divider>
+</block>
+<block wx:else>
+    <block wx:for="{{deviceList}}" wx:key="index">
+        <i-card title="设备预定提醒" extra="设备">
+            <view slot="content">用户 {{item.userName}} 预定了设备</view>
+            <view slot="content">设备ID：{{item.deviceID}}</view>
+            <view slot="content">设备名称：{{item.deviceName}}</view>
+            <view slot="content">设备类型：{{item.type}}</view>
+            <view slot="content">预定天数：{{item.rentTime}} 天</view>
+            <view slot="footer">
+                <button bindtap="acceptPendingDevice" data-index="{{index}}" type="primary">同意</button>
+                <button bindtap="rejectPendingDevice" data-index="{{index}}" type="warn">拒绝</button>
+            </view>
+        </i-card>
+    </block>
+</block>

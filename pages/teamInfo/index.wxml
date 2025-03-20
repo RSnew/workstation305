@@ -1,0 +1,93 @@
+<view class="container">
+  <!-- 已加入的战队 -->
+  <view wx:if="{{joinedTeam}}">
+    <fui-card title="已加入的战队" margin="20rpx">
+      <view class="fui-card__content">
+        <fui-list>
+          <fui-list-cell>
+            <text>战队名称</text>
+            <text class="fui-text__explain">{{joinedTeam.teamName}}</text>
+          </fui-list-cell>
+          <fui-list-cell>
+            <text>战队口号</text>
+            <text class="fui-text__explain">{{joinedTeam.teamSlogan}}</text>
+          </fui-list-cell>
+          <fui-list-cell>
+            <text>指导老师</text>
+            <text class="fui-text__explain">{{joinedTeam.instructor}}</text>
+          </fui-list-cell>
+        </fui-list>
+      </view>
+      <view class="fui-card__footer">
+        <button bindtap="quitTeam" type="warn" style="width: 100%;">退出战队</button>
+      </view>
+    </fui-card>
+  </view>
+
+  <!-- 其他战队 -->
+  <view>
+    <fui-list-cell>
+      <view>其他战队</view>
+    </fui-list-cell>
+
+    <view class="list-container">
+      <block wx:for="{{teamList}}" wx:key="teamID">
+        <fui-card title="战队ID：{{item.teamID}}" tag="{{item.teamName}}" margin="20rpx">
+          <view class="fui-card__content">
+            <fui-list>
+              <fui-list-cell>
+                <text>战队名称</text>
+                <text class="fui-text__explain">{{item.teamName}}</text>
+              </fui-list-cell>
+              <fui-list-cell>
+                <text>战队口号</text>
+                <text class="fui-text__explain">{{item.teamSlogan}}</text>
+              </fui-list-cell>
+              <fui-list-cell>
+                <text>指导老师</text>
+                <text class="fui-text__explain">{{item.instructor}}</text>
+              </fui-list-cell>
+            </fui-list>
+          </view>
+          <block wx:if="{{joinedTeam && joinedTeam.teamID === item.teamID}}">
+            <view class="fui-card__footer">
+              <button disabled type="primary" style="width: 100%;">已加入</button>
+            </view>
+          </block>
+          <block wx:else>
+            <!-- 调试信息 -->
+            <!-- <text>当前 item.teamID: {{item.teamID}}</text> -->
+            <view class="fui-card__footer"> 
+              <!-- dataset 统一传递小写的参数-->
+              <button
+                bindtap="showJoinDrawer"
+                data-teamid="{{item.teamID}}"
+                type="primary"
+                style="width: 100%;"
+                disabled="{{item.isFull}}"
+              >
+                {{item.isFull ? '成员已满' : '加入'}}
+              </button>
+            </view>
+          </block>
+        </fui-card>
+      </block>
+    </view>
+  </view>
+
+  <!-- 加入战队的抽屉 -->
+  <fui-drawer show="{{showJoinDrawer}}" bindclose="closeJoinDrawer">
+    <scroll-view scroll-y class="fui-scroll__view">
+      <view>
+        <fui-list-cell
+          wx:for="{{availablePositions}}"
+          wx:key="index"
+          bindtap="joinTeam"
+          data-position="{{item}}"
+        >
+          {{item}}
+        </fui-list-cell>
+      </view>
+    </scroll-view>
+  </fui-drawer>
+</view>

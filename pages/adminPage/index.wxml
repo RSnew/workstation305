@@ -1,9 +1,39 @@
 <fui-list>
     <fui-card title="用户注册" bindtap="toUserSignIn" ></fui-card>
-    <fui-card title="座位预定审核" bindtap="toReviewSeat" ></fui-card>
-    <fui-card title="更改座位信息" bindtap="toChangeSeat"></fui-card>
+    <!-- <fui-card title="座位预定审核" bindtap="toReviewSeat" ></fui-card> -->
+    <!-- <fui-card title="更改座位信息" bindtap="toChangeSeat"></fui-card>
     <fui-card title="添加座位信息" bindtap="toAddSeat"></fui-card>
-    <fui-card title="删除座位信息" bindtap="toDeleteSeat"> </fui-card>
+    <fui-card title="删除座位信息" bindtap="toDeleteSeat"> </fui-card> -->
+    <fui-card title="座位管理" bindtap="showSeatDrawer"></fui-card>
+    <fui-drawer show="{{showSeatDrawer}}" bindclose="closeSeatDrawer" data-type="1">
+        <scroll-view scroll-y class="fui-scroll__view">
+        <view>
+            <fui-list-cell arrow wx:for="{{itemSeatList}}" wx:key="index" bind:click="toSeatDetail" data-index="{{index}}">
+            {{itemSeatList[index]}}
+            </fui-list-cell>
+        </view>
+        </scroll-view>
+    </fui-drawer>
+    <fui-card title="设备管理" bindtap="showDeviceDrawer"></fui-card>
+    <fui-drawer show="{{showDeviceDrawer}}" bindclose="closeDeviceDrawer" data-type="1">
+        <scroll-view scroll-y class="fui-scroll__view">
+        <view>
+            <fui-list-cell arrow wx:for="{{itemDeviceList}}" wx:key="index" bind:click="toDeviceDetail" data-index="{{index}}">
+            {{itemDeviceList[index]}}
+            </fui-list-cell>
+        </view>
+        </scroll-view>
+    </fui-drawer>
+    <fui-card title="战队管理" bindtap="showTeamDrawer"></fui-card>
+    <fui-drawer show="{{showTeamDrawer}}" bindclose="closeTeamDrawer" data-type="1">
+        <scroll-view scroll-y class="fui-scroll__view">
+        <view>
+            <fui-list-cell arrow wx:for="{{itemTeamList}}" wx:key="index" bind:click="toTeamDetail" data-index="{{index}}">
+            {{itemTeamList[index]}}
+            </fui-list-cell>
+        </view>
+        </scroll-view>
+    </fui-drawer>
     <!-- <fui-card title="修改用户信息" url="/pages/adminPage/userManage/index" ></fui-card>
     <fui-card title="座位预定查看" url="/pages/adminPage/userManage/index" ></fui-card>
     <fui-card title="批量签到" url="/pages/adminPage/userManage/index" ></fui-card> -->

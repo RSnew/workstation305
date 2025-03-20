@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "fui-switch":"/firstui/fui-switch/fui-switch"
+  }
+}

@@ -16,8 +16,14 @@
     "pages/reviewSeat/index",
     "pages/addSeat/index",
     "pages/deleteSeat/index",
+    "pages/deviceDetail/index",
+    "pages/addDevice/index",
+    "pages/deviceView/index",
+    "pages/reviewDevice/index",
+    "pages/teamDetail/index",
+    "pages/addTeam/index",
+    "pages/teamInfo/index",
     "pages/changeSeatInfo/index"
-    
   ],
   "window": {
     "backgroundTextStyle": "light",
