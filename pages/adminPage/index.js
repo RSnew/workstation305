@@ -19,6 +19,11 @@ Page({
       '修改/删除/查看战队',
       '战队加入/退出审核'
     ],
+    itemCompetitionList:[
+      '添加比赛',
+      '修改/删除/查看比赛',
+      '比赛报名审核'
+    ],
   },
   onLoad(options) {
 
@@ -75,6 +80,16 @@ Page({
   closeTeamDrawer(type) {
     this.setData({
       showTeamDrawer: false
+    })
+  },
+  showCompetitionDrawer(type) {
+    this.setData({
+      showCompetitionDrawer: true
+    })
+  },
+  closeCompetitionDrawer(type) {
+    this.setData({
+      showCompetitionDrawer: false
     })
   },
   toSeatDetail(e){
@@ -151,5 +166,33 @@ Page({
         });
         break;
     }
+  },
+  toCompetitionDetail(e){
+    console.log(e.currentTarget.dataset.index)
+    switch(e.currentTarget.dataset.index){
+      case 0:
+        //添加比赛
+        wx.navigateTo({
+          url: '/pages/addCompetition/index'
+        });
+        break;
+      case 1:
+        //查看/修改/删除比赛
+        wx.navigateTo({
+          url: '/pages/competitionInfo/index'
+        });
+        break;
+      case 2:
+        //比赛报名审核
+        wx.navigateTo({
+          url: '/pages/reviewCompetition/index'
+        });
+        break;
+    }
+  },
+  toAnnouncement(){
+    wx.navigateTo({
+      url: '/pages/announcement/index'
+    });
   }
 });

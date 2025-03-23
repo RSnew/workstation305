@@ -1,0 +1,19 @@
+<view class="container">
+  <fui-section title="发送公告" isLine></fui-section>
+
+  <!-- 公告标题输入框 -->
+  <fui-input
+    label="公告标题"
+    placeholder="请输入公告标题"
+    model:value="{{title}}"
+  ></fui-input>
+
+  <!-- 公告内容输入框 -->
+  <fui-textarea
+    label="公告内容"
+    placeholder="请输入公告内容"
+    model:value="{{content}}"
+    maxlength="1000"
+  ></fui-textarea>
+  <button bindtap="submitAnnouncement" type="primary" style="margin-top: 40rpx;">发送公告</button>
+</view>

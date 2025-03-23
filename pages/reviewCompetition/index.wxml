@@ -1,0 +1,19 @@
+<fui-section class="fui-section-css" isLine title="比赛报名审核"></fui-section>
+<block wx:if="{{competitionList.length<=0}}">
+    <i-divider content="加载已经完成,没有其他数据"></i-divider>
+</block>
+<block wx:else>
+    <block wx:for="{{competitionList}}" wx:key="index">
+        <i-card title="比赛报名提醒" extra="比赛">
+            <view slot="content">队伍 {{item.teamName}} 报名了比赛</view>
+            <view slot="content">比赛ID：{{item.competitionID}}</view>
+            <view slot="content">比赛名称：{{item.competitionName}}</view>
+            <view slot="content">比赛简介{{item.competitionIntroduction}}</view>
+            <view slot="content">报名时间：{{item.registerTime}}</view>
+            <view slot="footer">
+                <button bindtap="acceptPendingCompetition" data-index="{{index}}" type="primary">同意</button>
+                <button bindtap="rejectPendingCompetition" data-index="{{index}}" type="warn">拒绝</button>
+            </view>
+        </i-card>
+    </block>
+</block>

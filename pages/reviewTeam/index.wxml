@@ -1,0 +1,18 @@
+<fui-section class="fui-section-css" isLine title="战队预约审核"></fui-section>
+<block wx:if="{{teamList.length == 0}}">
+    <i-divider content="加载已经完成,没有其他数据"></i-divider>
+</block>
+<block wx:else>
+    <block wx:for="{{teamList}}" wx:key="index">
+        <i-card title="战队预约提醒" extra="战队">
+            <view slot="content">用户 {{item.userName}} 申请加入战队</view>
+            <view slot="content">战队ID：{{item.teamID}}</view>
+            <view slot="content">战队名称：{{item.teamName}}</view>
+            <view slot="content">申请角色：{{item.roleDisplay}}</view>
+            <view slot="footer">
+                <button bindtap="acceptPendingTeam" data-index="{{index}}" type="primary">同意</button>
+                <button bindtap="rejectPendingTeam" data-index="{{index}}" type="warn">拒绝</button>
+            </view>
+        </i-card>
+    </block>
+</block>

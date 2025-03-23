@@ -1,0 +1,73 @@
+<fui-list-cell>
+    <text>当前比赛数：{{competitionInfo.length}}</text>
+</fui-list-cell>
+<view wx:if="{{joinedTeam}}">
+    <fui-card title="已加入的战队" margin="20rpx">
+      <view class="fui-card__content">
+        <fui-list>
+          <fui-list-cell>
+            <text>战队名称</text>
+            <text class="fui-text__explain">{{joinedTeam.teamName}}</text>
+          </fui-list-cell>
+          <fui-list-cell>
+            <text>战队口号</text>
+            <text class="fui-text__explain">{{joinedTeam.teamSlogan}}</text>
+          </fui-list-cell>
+          <fui-list-cell>
+            <text>指导老师</text>
+            <text class="fui-text__explain">{{joinedTeam.instructor}}</text>
+          </fui-list-cell>
+          <fui-list-cell>
+            <text>已加入的比赛</text>
+            <button bindtap="toCompetitionAlready" style="width: 50%; margin-top: 0px;">点击查看</button>
+          </fui-list-cell>
+          <fui-list-cell wx:if="{{!isLeader}}">
+            <text style="color:red">仅队长可报名比赛</text>
+          </fui-list-cell>
+        </fui-list>
+      </view>
+    </fui-card>
+</view>
+
+<view wx:if="{{competitionInfo.length > 0}}">
+   <block wx:for="{{competitionInfo}}" wx:key="id">
+       <fui-card title="比赛信息">
+           <fui-list>
+               <fui-list-cell>
+                   <text>比赛名称：</text>
+                   <input wx:if="{{isEdit}}" class="fui-text__explain" type="text" value="{{item.name}}" bindinput="bindNameInput" data-index="{{index}}" />
+                   <text wx:else class="fui-text__explain">{{item.name}}</text>
+               </fui-list-cell>
+               <fui-list-cell>
+                   <text>开始时间：</text>
+                   <input wx:if="{{isEdit}}" class="fui-text__explain" type="text" value="{{item.time_front}}" bindinput="bindTimeFrontInput" data-index="{{index}}" />
+                   <text wx:else class="fui-text__explain">{{item.time_front}}</text>
+               </fui-list-cell>
+               <fui-list-cell>
+                   <text>结束时间：</text>
+                   <input wx:if="{{isEdit}}" class="fui-text__explain" type="text" value="{{item.time_rear}}" bindinput="bindTimeRearInput" data-index="{{index}}" />
+                   <text wx:else class="fui-text__explain">{{item.time_rear}}</text>
+               </fui-list-cell>
+               <fui-list-cell>
+                   <text>比赛介绍：</text>
+                   <input wx:if="{{isEdit}}" class="fui-text__explain" type="text" value="{{item.introduction}}" bindinput="bindIntroductionInput" data-index="{{index}}" />
+                   <text wx:else class="fui-text__explain">{{item.introduction}}</text>
+               </fui-list-cell>
+               <fui-list-cell>
+                   <text>竞赛官网：</text>
+                   <input wx:if="{{isEdit}}" class="fui-text__explain" type="text" value="{{item.url}}" bindinput="bindUrlInput" data-index="{{index}}" />
+                   <text bindtap="gotoWeb" data-url="{{item.url}}" wx:else url="{{item.url}}" class="fui-text__explain" style="color:aqua">{{item.url}}</text>
+               </fui-list-cell>
+           </fui-list>
+           <button wx:if="{{isLeader}}" bindtap="registerForCompetiton" data-index="{{index}}" type="primary" style="width: 100%; margin-top: 20px;">报名比赛</button>
+           <button wx:if="{{isAdmin}}" bindtap="toggleEdit" data-index="{{index}}" type="default" style="width: 100%; margin-top: 20px;">
+                 <text wx:if="{{isEdit}}">保存</text>
+                 <text wx:else>修改比赛信息</text>
+           </button> 
+           <button wx:if="{{isAdmin}}" bindtap="deleteCompetition" data-index="{{index}}" type="warn" style="width: 100%; margin-top: 20px;">删除比赛</button>
+       </fui-card>
+   </block>
+</view>
+<view wx:else>
+   <i-divider content="现在没有比赛信息"></i-divider>
+</view>

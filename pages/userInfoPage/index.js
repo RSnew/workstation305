@@ -39,14 +39,10 @@ Page({
         }
       }
       // 管理员修改用户信息按钮逻辑
-      if(app.globalData.userInfo){
-        let userTest=app.globalData.userInfo
-        console.log(userTest)
-        if(userTest.isAdmin){
-          that.setData({
-            isChange: true
-          })
-        }
+      if(wx.getStorageSync('isAdmin')){
+        that.setData({
+          isChange: true
+        })
       }
     }catch(e){
       console.log(e)

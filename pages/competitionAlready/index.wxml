@@ -1,0 +1,32 @@
+<view wx:if="{{acceptedCompetition.length > 0}}">
+<fui-card title="已报名比赛">
+  <block wx:for="{{acceptedCompetition}}" wx:key="competitionID">
+    
+      <fui-list>
+        <fui-list-cell>
+          <text>比赛名称：</text>
+          <text class="fui-text__explain">{{item.competitionName}}</text>
+        </fui-list-cell>
+        <fui-list-cell>
+          <text>比赛时间：</text>
+          <text class="fui-text__explain">{{item.competitionTime.time}}</text>
+        </fui-list-cell>
+        <fui-list-cell>
+          <text>比赛简介：</text>
+          <text class="fui-text__explain">{{item.competitionIntroduction}}</text>
+        </fui-list-cell>
+        <fui-list-cell>
+          <text>报名时间：</text>
+          <text class="fui-text__explain">{{item.registerTime}}</text>
+        </fui-list-cell>
+        <fui-list-cell>
+          <text>比赛链接：</text>
+          <text bindtap="gotoWeb" data-url="{{item.competitionUrl}}" class="fui-text__explain" style="color:aqua">{{item.competitionUrl}}</text>
+        </fui-list-cell>
+      </fui-list>
+  </block>
+</fui-card>
+</view>
+<view wx:else>
+  <i-divider content="暂无已报名的比赛"></i-divider>
+</view>

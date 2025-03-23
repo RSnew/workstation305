@@ -1,3 +1,28 @@
+<view class="container">
+  <fui-section title="最新公告" isLine></fui-section>
+
+  <view wx:if="{{recentAnnouncements.length > 0}}">
+    <block wx:for="{{recentAnnouncements}}" wx:key="id">
+    <view wx:if="{{item.isVisible}}">
+      <fui-alert type="info" isLeft title="{{item.title}}" size="32rpx" marginTop="{{24}}">
+        <fui-icon name="warning" size="{{48}}" color="#ffffff" slot="icon"></fui-icon>
+        <view slot="content">
+          <text>{{item.content}}</text>
+          <view class="announcement-footer">
+            <text class="footer-text">发布时间：{{item.time}}</text>
+          </view>
+            <view slot="footer">
+                <button bindtap="closeAnnouncement" data-index="{{index}}" type="default" size="mini">关闭</button>
+            </view>
+        </view>
+      </fui-alert>
+    </view>
+    </block>
+  </view>
+  <view wx:else>
+    <i-divider content="暂无公告"></i-divider>
+  </view>
+</view>
 <!--登录-->
 <view class="bg-img bg-mask flex align-center" style="background-image: url('{{alioss}}/indexPicture/icon/login.png');height: 122px;"
   bindtap="toLoginPage" wx:if="{{!isLogin}}">
@@ -88,6 +113,17 @@
         </view>
         <view class="padding-xs text-lg">
             大家都很强
+        </view>
+    </view>
+</view>
+<!--查看比赛-->
+<view class="bg-img bg-mask flex align-center" style="background-image: url('{{alioss}}/indexPicture/icon/team.jpg');height: 122px;" >
+    <view class="padding-xl text-white" bindtap="toCompetitionInfo">
+        <view class="padding-xs text-xxl text-bold">
+            查看比赛
+        </view>
+        <view class="padding-xs text-lg">
+            变强的路径
         </view>
     </view>
 </view>

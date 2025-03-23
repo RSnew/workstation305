@@ -1,0 +1,38 @@
+<view class="container">
+  <fui-card title="添加比赛信息" margin="20rpx">
+    <view class="fui-card__content">
+      <fui-list>
+        <fui-list-cell>
+          <text>比赛名称：</text>
+          <input class="fui-text__explain" type="text" placeholder="请输入比赛名称" bindinput="bindNameInput" />
+        </fui-list-cell>
+        <fui-list-cell>
+          <text>开始时间：</text>
+          <picker mode="date" bindchange="bindTimeFrontChange">
+            <view class="picker">
+              {{timeFront || '请选择开始时间'}}
+            </view>
+          </picker>
+        </fui-list-cell>
+        <fui-list-cell>
+          <text>结束时间：</text>
+          <picker mode="date" bindchange="bindTimeRearChange">
+            <view class="picker">
+              {{timeRear || '请选择结束时间'}}
+            </view>
+          </picker>
+        </fui-list-cell>
+        <fui-list-cell>
+          <text>比赛介绍：</text>
+          <input class="fui-text__explain" type="text" placeholder="请输入比赛介绍" bindinput="bindIntroductionInput" />
+        </fui-list-cell>
+        <fui-list-cell>
+          <text>竞赛官网：</text>
+          <input class="fui-text__explain" type="text" placeholder="请输入竞赛官网链接" bindinput="bindUrlInput" />
+        </fui-list-cell>
+      </fui-list>
+    </view>
+  </fui-card>
+
+  <button bindtap="submitCompetition" type="primary" style="width: 100%; margin-top: 20px;">提交比赛信息</button>
+</view>

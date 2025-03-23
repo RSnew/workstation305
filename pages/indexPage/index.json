@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "fui-alert":"/firstui/fui-alert/fui-alert",
+    "fui-icon": "/firstui/fui-icon/fui-icon"
+  }
 }

@@ -11,6 +11,7 @@ Page({
     isLogin: false,
     isAdmin:false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    recentAnnouncements: [],
   },
   //事件处理函数
   bindViewTap: function() {
@@ -19,6 +20,7 @@ Page({
     })
   },
   onLoad: async function () {
+    this.fetchRecentAnnouncements();
     let number=wx.getStorageSync('userNumber')
     //登录 session 判定
     if (number ){
@@ -52,7 +54,6 @@ Page({
         success(res) {
           if (res.code) {
             console.log('登录成功，code:', res.code);
-            // 将 code 发送到服务器
             wx.request({
               url: app.globalData.RequestURL+'get_openid/',
               method: 'POST',
@@ -85,7 +86,41 @@ Page({
       isLogin: true
     })
   },
-
+  fetchRecentAnnouncements() {
+    wx.request({
+      url: app.globalData.RequestURL + 'get_recent_announcement/',
+      method: 'GET',
+      success: (res) => {
+        if (res.data.status === 'success') {
+          console.log('recentAnnouncements:', res.data.data);
+          this.setData({
+            recentAnnouncements: res.data.data,
+          });
+        } else {
+          wx.showToast({
+            title: '加载公告失败',
+            icon: 'none',
+          });
+        }
+      },
+      fail: () => {
+        wx.showToast({
+          title: '网络错误，请重试',
+          icon: 'none',
+        });
+      },
+    });
+  },
+  closeAnnouncement(e) {
+    const index = e.currentTarget.dataset.index;
+    const { recentAnnouncements } = this.data;
+    console.log('closeAnnouncement index:', index);
+    recentAnnouncements[index].isVisible = false;
+    this.setData({
+      recentAnnouncements,
+    });
+    console.log('recentAnnouncements:', recentAnnouncements);
+  },
   toLoginPage:function(e){
     wx.navigateTo({
       url: '/pages/loginPage/login',
@@ -129,6 +164,11 @@ Page({
   toTeamInfo(e){
     wx.navigateTo({
       url: '/pages/teamInfo/index',
+    })
+  },
+  toCompetitionInfo(e){
+    wx.navigateTo({
+      url: '/pages/competitionInfo/index',
     })
   },
   //客服接口测试

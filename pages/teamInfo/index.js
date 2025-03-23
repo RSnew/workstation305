@@ -161,9 +161,9 @@ Page({
           this.fetchTeamList();
           this.fetchJoinedTeam();
           this.closeJoinDrawer();
-        } else {
+        } else if(res.data.status === 'already') {
           wx.showToast({
-            title: '加入失败',
+            title: '你已经申请过战队',
             icon: 'none',
           });
         }

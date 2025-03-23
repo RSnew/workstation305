@@ -23,7 +23,14 @@
     "pages/teamDetail/index",
     "pages/addTeam/index",
     "pages/teamInfo/index",
+    "pages/reviewTeam/index",
+    "pages/competitionInfo/index",
+    "pages/addCompetition/index",
+    "pages/reviewCompetition/index",
+    "pages/competitionAlready/index",
+    "pages/announcement/index",
     "pages/changeSeatInfo/index"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
