@@ -29,9 +29,9 @@
     "pages/reviewCompetition/index",
     "pages/competitionAlready/index",
     "pages/announcement/index",
+    "pages/joinRequest/index",
     "pages/changeSeatInfo/index"
-    
-  ],
+   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",

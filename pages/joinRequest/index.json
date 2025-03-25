@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "fui-textarea":"/firstui/fui-textarea/fui-textarea"
+  }
+}

@@ -171,6 +171,11 @@ Page({
       url: '/pages/competitionInfo/index',
     })
   },
+  toJoinRequest(e){
+    wx.navigateTo({
+      url: '/pages/joinRequest/index',
+    })
+  },
   //客服接口测试
   handleContact(e) {
     console.log('客服会话回调:', e.detail);

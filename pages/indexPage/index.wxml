@@ -129,7 +129,7 @@
 </view>
 <!--入驻工坊申请-->
 <view class="bg-img bg-mask flex align-center" style="background-image: url('{{alioss}}/indexPicture/icon/apply.png');height: 122px;">
-    <view class="padding-xl text-white">
+    <view class="padding-xl text-white" bindtap="toJoinRequest">
         <view class="padding-xs text-xxl text-bold">
             工坊申请
         </view>

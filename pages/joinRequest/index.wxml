@@ -1,0 +1,35 @@
+<view class="container">
+  <fui-section title="工坊申请" isLine></fui-section>
+
+  <!-- 姓名输入框 -->
+  <fui-input
+    label="姓名"
+    placeholder="请输入您的姓名"
+    model:value="{{name}}"
+  ></fui-input>
+
+  <!-- 学号输入框 -->
+  <fui-input
+    label="学号"
+    placeholder="请输入您的学号"
+    model:value="{{number}}"
+  ></fui-input>
+
+  <!-- 入学年份输入框 -->
+  <fui-input
+    label="入学年份"
+    placeholder="请输入您的入学年份"
+    model:value="{{inYear}}"
+  ></fui-input>
+
+  <!-- 申请理由输入框 -->
+  <fui-textarea
+    label="申请理由"
+    placeholder="请输入您的申请理由"
+    model:value="{{reason}}"
+    maxlength="1000"
+  ></fui-textarea>
+
+  <!-- 提交按钮 -->
+  <button bindtap="submit" type="primary" style="margin-top: 40rpx;">提交申请</button>
+</view>

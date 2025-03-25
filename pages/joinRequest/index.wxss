@@ -1,0 +1,14 @@
+.container {
+    padding: 20rpx;
+  }
+  
+  /* 按钮样式 */
+  button[type="primary"] {
+    background-color: #07c160;
+    color: #fff;
+  }
+  
+  /* 输入框和文本区域的间距 */
+  fui-input, fui-textarea {
+    margin-bottom: 20rpx;
+  }
